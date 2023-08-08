@@ -1,0 +1,38 @@
+@import "~bootstrap/scss/functions";  // 匯入 functions
+@import "@/assets/stylesheets/helpers/bootstrap_customized/_variables.scss";  // 自訂 bootstrap 變數
+@import "@/assets/stylesheets/helpers/bootstrap_customized/_utilities.scss"; // 自訂 bootstrap 通用類別
+@import "~bootstrap/scss/bootstrap"; // 將所有 bootstrap 載出來
+
+
+@import '@/assets/stylesheets/helpers/font.scss';
+@import "@/assets/stylesheets/helpers/_base.scss";
+@import "@/assets/stylesheets/helpers/_utils.scss";
+
+
+div > section:nth-child(2n) {
+  background-color: #000;
+}
+* {
+  color: #fff;
+}
+
+// 白天樣式
+[data-theme="light"] {
+  color: #000;
+
+  & .btn {
+    &:hover {
+      color: #fff !important;
+    }
+  }
+}
+// 黑暗樣式
+[data-theme="dark"] {
+  color: #fff;
+  
+  &.btn {
+  }
+  &.btn:hover {
+    color: #bbafaf;
+  }
+}
