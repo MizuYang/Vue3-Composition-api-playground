@@ -3,19 +3,26 @@
 const theme = {
   namespaced: true,
   state: {
-    theme: 'dark' // light, dark
+    theme: '' // light, dark
   },
   actions: {
-    changeTheme ({ commit }, theme) {
-      console.log('切換主題')
+    changeTheme ({ state, dispatch, commit }) {
+      const { theme } = state
       const newTheme = theme === 'dark' ? 'light' : 'dark'
       localStorage.setItem('theme', JSON.stringify(newTheme))
       commit('UPDATE_THEME', newTheme)
+      dispatch('getBodyBgColor')
+      console.log('切換主題為:', newTheme)
     },
     getTheme ({ commit }) {
-      console.log('取得主題')
       const newTheme = JSON.parse(localStorage.getItem('theme')) || 'dark'
       commit('UPDATE_THEME', newTheme)
+      console.log('取得主題', newTheme)
+    },
+    getBodyBgColor ({ state }) {
+      const bgColor = state.theme === 'dark' ? '#000' : '#fff'
+      console.log('bgColor', bgColor)
+      document.body.style.backgroundColor = bgColor
     }
   },
   mutations: {

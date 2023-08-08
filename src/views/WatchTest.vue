@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid d-flex flex-column my-3 px-0 py-3">
+  <div class="container d-flex flex-column my-3 px-0 py-3">
     <!-- 變數宣告 -->
     <section class="mb-3 p-3">
       <h2 class="text-20 mb-1" :data-theme="themeStore.theme">1. 變數宣告</h2>

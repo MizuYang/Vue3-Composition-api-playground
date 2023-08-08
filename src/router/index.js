@@ -5,6 +5,11 @@ const routes = [
     path: '/',
     name: 'home',
     component: () => import('@/views/HomeView.vue')
+  },
+  {
+    path: '/watch',
+    name: 'watch',
+    component: () => import('@/views/WatchTest.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',

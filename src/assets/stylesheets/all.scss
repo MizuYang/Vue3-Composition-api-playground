@@ -9,30 +9,26 @@
 @import "@/assets/stylesheets/helpers/_utils.scss";
 
 
-div > section:nth-child(2n) {
-  background-color: #000;
+body {
+  transition: color .5s, background-color .5s;
 }
-* {
-  color: #fff;
-}
-
 // 白天樣式
 [data-theme="light"] {
   color: #000;
-
-  & .btn {
-    &:hover {
-      color: #fff !important;
-    }
+  // background-color: #fff;
+  transition: color .5s, background-color .5s;
+  
+  &.btn:hover {
+    color: #000;
   }
 }
 // 黑暗樣式
 [data-theme="dark"] {
   color: #fff;
-  
-  &.btn {
-  }
+  // background-color: #000;
+  transition: color .5s, background-color .5s;
+
   &.btn:hover {
-    color: #bbafaf;
+    color: #fff;
   }
 }

@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 // import axios from 'axios'
 
 // 其它store
+import theme from '@/vuex/store/theme.js'
 
 export default createStore({
   strict: false, // 嚴謹模式
@@ -23,5 +24,6 @@ export default createStore({
   getters: {
   },
   modules: {
+    theme
   }
 })
