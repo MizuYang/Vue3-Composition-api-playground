@@ -1,1 +1,6 @@
-Vue CLI 環境模板
+  - Watch
+  - Computed
+  - WatchEffect 
+  - Component
+  - Props
+  - Emits

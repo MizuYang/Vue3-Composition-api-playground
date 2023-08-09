@@ -3,12 +3,11 @@
     <label for="sync" ref="checkbox">Sync &lt;body&gt;</label>
     <input id="sync" type="checkbox" />
   </div>
-  <button class="toggle position-absolute end-0"
+  <button class="toggle"
           ref="themeSwitch"
           :aria-pressed="themeStore.theme==='dark'"
           title="Toggle Dark Mode"
-          @click="toggle"
-          style="transform: scale(0.2);">
+          @click="toggle">
     <span class="toggle__content">
       <svg
         aria-hidden="true"

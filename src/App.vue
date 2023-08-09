@@ -5,11 +5,10 @@
     <router-link to="/watch" class="text-light mx-2">watch</router-link> |
     <router-link to="/computed" class="text-light mx-2">computed</router-link> |
     <router-link to="/watchEffect" class="text-light mx-2">watchEffect</router-link> |
-    <!-- <button type="button" class="btn text-light ms-auto me-3" @click="changeTheme">
-      {{ themeStore.theme==='dark'?'白天':'黑暗' }}
-    </button> -->
-    <ChangeThemeSwitch />
-    <!-- <ChangeThemeSwitch class="position-absolute" /> -->
+    <router-link to="/component" class="text-light mx-2">component</router-link>
+    <div style="transform: scale(0.2);">
+      <ChangeThemeSwitch />
+    </div>
   </nav>
   <router-view class="mt-5" style="width:100vw;" />
 </template>
@@ -26,7 +25,6 @@ export default {
     const store = useStore()
     const themeStore = computed(() => store.state.theme)
     const getTheme = () => store.dispatch('theme/getTheme')
-    // const changeTheme = () => store.dispatch('theme/changeTheme')
     const getBodyBgColor = () => store.dispatch('theme/getBodyBgColor')
 
     getTheme()
@@ -38,7 +36,6 @@ export default {
     return {
       themeStore,
       getTheme
-      // changeTheme
     }
   }
 }
