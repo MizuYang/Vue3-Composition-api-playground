@@ -52,7 +52,7 @@ watch(objRef.value, () => {
     </section>
 
     <!-- Reactive 練習 v-model 綁定物件 -->
-    <section class="border-3 mb-3 p-3">
+    <section class="mb-3 p-3">
       <label for="test4" class="form-label">
         <h2 class="text-20 mb-1" :data-theme="themeStore.theme">5. v-model 綁定 reactive 物件中 text 變數</h2>
         <input type="text" class="form-control" id="test4" v-model="objReactive.text" placeholder="輸入文字">
@@ -66,7 +66,7 @@ watch(objReactive, () => {
     </section>
 
     <!-- 練習一次監聽多個值 -->
-    <section class="border-3 mb-3 p-3">
+    <section class="mb-3 p-3">
       <h2 class="text-20 mb-1" :data-theme="themeStore.theme">6. 練習一次監聽多個值</h2>
       <div class="row justify-content-center">
         <div class="col-5">
@@ -90,6 +90,26 @@ watch([t1, t2], ([newT1, newT2], [oldT1, oldT2]) => {
   watch6.value = `"watch": 舊t1: ${oldT1}, 舊t2: ${oldT2}`
 }, { deep: true })</pre>
     </section>
+
+    <!-- 移除 Watch 監聽 -->
+    <section class="mb-3 p-3">
+      <h2 class="text-20 mb-1" :data-theme="themeStore.theme">7. 移除 Watch 監聽</h2>
+      <p class="my-1" :data-theme="themeStore.theme">
+        num === 3 就解除 Watch 監聽
+      </p>
+      <button type="button" class="btn btn-secondary me-2 p-1" @click="addNum">點我 num +1</button>
+
+      <p class="my-1" :data-theme="themeStore.theme">
+        num: "{{ num }}" <br />
+        watch 狀態: <span :class="num==3?'text-secondary':'text-success'">"{{ num===3?'off':'on' }}"</span>
+      </p>
+      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "{{ watch5 }}"</p>
+      <pre class="bg-dark text-light p-2">
+const stopNumWatch = watch(num, (nVal, oVal) => {
+  console.log('Watch 有執行')
+  if (nVal === 3) stopNumWatch()
+})</pre>
+    </section>
   </div>
 </template>
 
@@ -105,6 +125,7 @@ export default {
     const objReactive = reactive({})
     const t1 = ref('')
     const t2 = ref('')
+    const num = ref(0)
     const watch1 = ref('')
     const watch2 = ref('')
     const watch3 = ref('')
@@ -141,6 +162,16 @@ export default {
       watch5.value = `"watch": 新t1: ${newT1}, 新t2: ${newT2}`
       watch6.value = `"watch": 舊t1: ${oldT1}, 舊t2: ${oldT2}`
     }, { deep: true })
+    // 監聽 num
+    const stopNumWatch = watch(num, (nVal, oVal) => {
+      console.log('Watch 有執行')
+      if (nVal === 3) stopNumWatch()
+    })
+
+    function addNum () {
+      if (num.value === 3) return
+      num.value++
+    }
 
     return {
       themeStore,
@@ -154,7 +185,9 @@ export default {
       watch5,
       watch6,
       t1,
-      t2
+      t2,
+      num,
+      addNum
     }
   }
 }
