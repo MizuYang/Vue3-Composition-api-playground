@@ -5,11 +5,11 @@
       <h2 class="text-20 mb-1" :data-theme="themeStore.theme">1. computed 排序data</h2>
       <button type="button" class="btn btn-sm btn-primary btn-secondary me-1 mb-1 p-1" @click="getRandomNum">產生隨機數字</button>
       <button type="button" class="btn btn-sm btn-primary btn-secondary mb-1 p-1" @click="sortReverse">反轉</button>
+      <p class="my-2" :data-theme="themeStore.theme">{{ sortData }}</p>
       <pre class="bg-dark text-light p-2">
 const data = ref([])
 const isSortReverse = ref(false)
 const sortData = computed(() => data.value.sort((a, b) => isSortReverse.value ? a - b : b - a))</pre>
-      <p :data-theme="themeStore.theme">{{ sortData }}</p>
     </section>
 
     <!-- Computed get(), set() -->
