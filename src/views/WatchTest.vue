@@ -103,7 +103,6 @@ watch([t1, t2], ([newT1, newT2], [oldT1, oldT2]) => {
         num: "{{ num }}" <br />
         watch 狀態: <span :class="num==3?'text-secondary':'text-success'">"{{ num===3?'off':'on' }}"</span>
       </p>
-      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "{{ watch5 }}"</p>
       <pre class="bg-dark text-light p-2">
 const stopNumWatch = watch(num, (nVal, oVal) => {
   console.log('Watch 有執行')

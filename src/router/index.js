@@ -15,6 +15,11 @@ const routes = [
     path: '/computed',
     name: 'computed',
     component: () => import('@/views/ComputedTest.vue')
+  },
+  {
+    path: '/watchEffect',
+    name: 'watchEffect',
+    component: () => import('@/views/WatchEffect.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',

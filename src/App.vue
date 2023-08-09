@@ -4,6 +4,7 @@
     <router-link to="/" class="text-light mx-2">Home</router-link> |
     <router-link to="/watch" class="text-light mx-2">watch</router-link> |
     <router-link to="/computed" class="text-light mx-2">computed</router-link> |
+    <router-link to="/watchEffect" class="text-light mx-2">watchEffect</router-link> |
     <!-- <button type="button" class="btn text-light ms-auto me-3" @click="changeTheme">
       {{ themeStore.theme==='dark'?'白天':'黑暗' }}
     </button> -->
