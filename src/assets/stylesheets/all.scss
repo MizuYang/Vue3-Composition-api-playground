@@ -27,8 +27,13 @@ body {
   color: #fff;
   // background-color: #000;
   transition: color .5s, background-color .5s;
-
+  
   &.btn:hover {
     color: #fff;
   }
 }
+// 改變滑鼠圖標
+/* Start https://www.cursors-4u.com */ 
+html {
+    cursor: url(https://cur.cursors-4u.net/smilies/smi-3/smi211.cur), auto !important;
+  } /* End https://www.cursors-4u.com */
