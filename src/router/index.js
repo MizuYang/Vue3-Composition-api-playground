@@ -25,6 +25,11 @@ const routes = [
     path: '/component',
     name: 'component',
     component: () => import('@/views/ComponentTest.vue')
+  },
+  {
+    path: '/props',
+    name: 'props',
+    component: () => import('@/views/PropsFather.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',
