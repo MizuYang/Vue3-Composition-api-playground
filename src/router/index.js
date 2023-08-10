@@ -30,6 +30,11 @@ const routes = [
     path: '/props',
     name: 'props',
     component: () => import('@/views/PropsFather.vue')
+  },
+  {
+    path: '/emits',
+    name: 'emits',
+    component: () => import('@/views/EmitFather.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',

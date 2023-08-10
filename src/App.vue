@@ -6,7 +6,8 @@
     <router-link to="/computed" class="text-light mx-2">computed</router-link> |
     <router-link to="/watchEffect" class="text-light mx-2">watchEffect</router-link> |
     <router-link to="/component" class="text-light mx-2">component</router-link> |
-    <router-link to="/props" class="text-light mx-2">props</router-link>
+    <router-link to="/props" class="text-light mx-2">props</router-link> |
+    <router-link to="/emits" class="text-light mx-2">emits</router-link>
     <div style="transform: scale(0.2);">
       <ChangeThemeSwitch />
     </div>
