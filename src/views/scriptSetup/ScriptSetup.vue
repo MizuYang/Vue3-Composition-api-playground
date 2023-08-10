@@ -2,7 +2,6 @@
   <div class="container px-0 pb-5">
     <section class="p-3 pb-0">
       <h2 :data-theme="themeStore.theme">
-        <!-- {{ themeStore.theme }} -->
       </h2>
     </section>
 
@@ -10,6 +9,7 @@
       <ScriptSetupTabs />
     </nav>
 
+    <!-- common, props, emits -->
     <RouterView />
   </div>
 </template>
@@ -24,5 +24,4 @@ const themeStore = store.state.theme
 </script>
 
 <style lang='scss'>
-
 </style>

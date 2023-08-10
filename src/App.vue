@@ -1,16 +1,20 @@
 <template>
   <nav class="position-fixed top-0 w-100 d-flex align-items-center bg-dark text-light ps-3 py-2"
        style="max-height: 45px;">
+    <div style="transform: scale(0.2);">
+      <ChangeThemeSwitch />
+    </div>
     <router-link to="/" class="text-light mx-2">Home</router-link> |
     <router-link to="/watch" class="text-light mx-2">watch</router-link> |
     <router-link to="/computed" class="text-light mx-2">computed</router-link> |
     <router-link to="/watchEffect" class="text-light mx-2">watchEffect</router-link> |
     <router-link to="/component" class="text-light mx-2">component</router-link> |
     <router-link to="/props" class="text-light mx-2">props</router-link> |
-    <router-link to="/emits" class="text-light mx-2">emits</router-link>
-    <div style="transform: scale(0.2);">
+    <router-link to="/emits" class="text-light mx-2">emits</router-link> |
+    <router-link to="/scriptSetup" class="text-light mx-2">scriptSetup</router-link>
+    <!-- <div style="transform: scale(0.2);">
       <ChangeThemeSwitch />
-    </div>
+    </div> -->
   </nav>
   <router-view class="mt-5" style="width:100vw;" />
 </template>
