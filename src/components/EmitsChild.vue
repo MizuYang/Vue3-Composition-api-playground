@@ -6,9 +6,7 @@
       <button type="button" class="btn btn-secondary mb-1 p-1" @click="emit('addNum')">寫法一：點我將父層的 num++</button>
 
       <pre class="bg-dark text-light mt-2 p-2">
-{{ `<button type="button"  @click="emit('addNum')">
-  寫法一：點我將父層的 num++
-<button>` }}</pre>
+{{ `<button type="button"  @click="emit('addNum')"><button>` }}</pre>
       <pre class="bg-dark text-light p-2">
 emits: ['addNum'],
 setup (props, { emit }) {
@@ -19,9 +17,7 @@ setup (props, { emit }) {
 
       <button type="button" class="btn btn-secondary p-1" @click="addNum">寫法二：點我將父層的 num++</button>
       <pre class="bg-dark text-light mt-2 p-2">
-{{ `<button type="button" @click="addNum">
-  寫法二：點我將父層的 num++
-<button>` }}</pre>
+{{ `<button type="button" @click="addNum"><button>` }}</pre>
       <pre class="bg-dark text-light p-2">
 emits: ['addNum'],
 setup (props, { emit }) {

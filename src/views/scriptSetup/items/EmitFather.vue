@@ -3,7 +3,7 @@
     <section class="p-3 pb-0">
       <h2 class="text-20 mb-1" :data-theme="themeStore.theme">父層</h2>
 
-      <p class="text-20 my-2" :data-theme="themeStore.theme"><code>num：</code>{{ num }}</p>
+      <p class="text-20 my-2" :data-theme="themeStore.theme">num：<code>{{ num }}</code></p>
 
       <pre class="bg-dark text-light p-2">
 {{ '<EmitsChild @addNum="addNum" />' }}</pre>

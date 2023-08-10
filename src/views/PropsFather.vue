@@ -4,7 +4,7 @@
       <h2 class="text-20 mb-2" :data-theme="themeStore.theme">父層</h2>
 
       <input type="text" class="form-control" ref="input" v-model="fatherVariable">
-      <p class="text-20  my-2" :data-theme="themeStore.theme"><code>fatherVariable：</code>{{ fatherVariable }}</p>
+      <p class="text-20  my-2" :data-theme="themeStore.theme">fatherVariable：<code>{{ fatherVariable }}</code></p>
 
       <pre class="bg-dark text-light p-2">
 {{ '<PropsChild :fatherVariable="fatherVariable" />' }}</pre>

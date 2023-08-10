@@ -2,7 +2,7 @@
   <section class="p-3 pb-0">
     <h2 class="text-20 mb-1" :data-theme="themeStore.theme">子層</h2>
     <p class="text-20 mb-1" :data-theme="themeStore.theme">
-      <code>myFatherVariable</code>：{{ myFatherVariable }} <br />
+      myFatherVariable：<code>{{ myFatherVariable }}</code> <br />
       <pre class="bg-dark text-light p-2">
 props: ['fatherVariable'],
 setup (props) {
@@ -16,8 +16,8 @@ setup (props) {
     props
   }
 }</pre>
-      <code>props</code>: {{ props }} <br />
-      <code>props.fatherVariable</code>: {{ props.fatherVariable }}
+      props: <code>{{ props }}</code> <br />
+      props.fatherVariable: <code>{{ props.fatherVariable }}</code>
     </p>
   </section>
 </template>

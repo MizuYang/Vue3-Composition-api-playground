@@ -15,7 +15,7 @@ const objReactive = reactive({})</pre>
         <h2 class="text-20 mb-1" :data-theme="themeStore.theme">2. v-model 綁定 ref 單一變數</h2>
         <input type="text" class="form-control" id="test1" v-model="text" placeholder="輸入文字">
       </label>
-      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "{{ watch1 }}"</p>
+      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "<code>{{ watch1 }}</code>"</p>
       <pre class="bg-dark text-light p-2">
 watch(() => objRef.value.text, () => {
   console.log('"watch": text 的值改變了', text.value)
@@ -29,7 +29,7 @@ watch(() => objRef.value.text, () => {
         <h2 class="text-20 mb-1" :data-theme="themeStore.theme">3. v-model 綁定 ref 物件中 text 變數</h2>
         <input type="text" class="form-control" id="test2" v-model="objRef.text" placeholder="輸入文字">
       </label>
-      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "{{ watch2 }}"</p>
+      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "<code>{{ watch2 }}</code>"</p>
       <pre class="bg-dark text-light p-2">
 watch(() => objRef.value.text, () => {
   console.log('"watch": objRef.text改變了', objRef.value)
@@ -43,7 +43,7 @@ watch(() => objRef.value.text, () => {
         <h2 class="text-20 mb-1" :data-theme="themeStore.theme">4. v-model 綁定 ref 物件中 name 變數</h2>
         <input type="text" class="form-control" id="test3" v-model="objRef.name" placeholder="輸入文字">
       </label>
-      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "{{ watch3 }}"</p>
+      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "<code>{{ watch3 }}</code>"</p>
       <pre class="bg-dark text-light p-2">
 watch(objRef.value, () => {
   console.log('"watch": objRef 的某值改變了', objRef.value)
@@ -57,7 +57,7 @@ watch(objRef.value, () => {
         <h2 class="text-20 mb-1" :data-theme="themeStore.theme">5. v-model 綁定 reactive 物件中 text 變數</h2>
         <input type="text" class="form-control" id="test4" v-model="objReactive.text" placeholder="輸入文字">
       </label>
-      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "{{ watch4 }}"</p>
+      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "<code>{{ watch4 }}</code>"</p>
       <pre class="bg-dark text-light p-2">
 watch(objReactive, () => {
   console.log('"watch": objReactive 的某值改變了', objReactive)
@@ -82,8 +82,8 @@ watch(objReactive, () => {
           </label>
         </div>
       </div>
-      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "{{ watch5 }}"</p>
-      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "{{ watch6 }}"</p>
+      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "<code>{{ watch5 }}</code>"</p>
+      <p class="my-1" :data-theme="themeStore.theme">watch 監聽: "<code>{{ watch6 }}</code>"</p>
       <pre class="bg-dark text-light p-2">
 watch([t1, t2], ([newT1, newT2], [oldT1, oldT2]) => {
   watch5.value = `"watch": 新t1: ${newT1}, 新t2: ${newT2}`
@@ -100,7 +100,7 @@ watch([t1, t2], ([newT1, newT2], [oldT1, oldT2]) => {
       <button type="button" class="btn btn-secondary me-2 p-1" @click="addNum">點我 num +1</button>
 
       <p class="my-1" :data-theme="themeStore.theme">
-        num: "{{ num }}" <br />
+        num: "<code>{{ num }}</code>" <br />
         watch 狀態: <span :class="num==3?'text-secondary':'text-success'">"{{ num===3?'off':'on' }}"</span>
       </p>
       <pre class="bg-dark text-light p-2">

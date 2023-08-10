@@ -5,7 +5,7 @@
       <h2 class="text-20 mb-1" :data-theme="themeStore.theme">1. computed 排序data</h2>
       <button type="button" class="btn btn-sm btn-primary btn-secondary me-1 mb-1 p-1" @click="getRandomNum">產生隨機數字</button>
       <button type="button" class="btn btn-sm btn-primary btn-secondary mb-1 p-1" @click="sortReverse">反轉</button>
-      <p class="my-2" :data-theme="themeStore.theme">{{ sortData }}</p>
+      <p class="my-2" :data-theme="themeStore.theme"><code>{{ sortData }}</code></p>
       <pre class="bg-dark text-light p-2">
 const data = ref([])
 const isSortReverse = ref(false)
@@ -19,9 +19,9 @@ const sortData = computed(() => data.value.sort((a, b) => isSortReverse.value ? 
       </h2>
       <button type="button" class="btn btn-sm btn-primary btn-secondary me-1 mb-1 p-1" @click="getRandomDiscount">產生隨機折扣</button>
       <p class="my-1" :data-theme="themeStore.theme">
-        原價: "{{ price }}"元 <br />
-        折扣: "{{ discount }}" <br />
-        折扣後價格: "{{ discountPrice }}"
+        原價: "<code>{{ price }}</code>"元 <br />
+        折扣: "<code>{{ discount }}</code>" <br />
+        折扣後價格: "<code>{{ discountPrice }}</code>"
       </p>
       <pre class="bg-dark text-light p-2">
 const discount = ref(Math.random().toFixed(2))
@@ -55,7 +55,7 @@ function getRandomDiscount () {
       </label>
 
       <p class="mt-1 mb-2" :data-theme="themeStore.theme">
-        信箱: "{{ email }}"
+        信箱: "<code>{{ email }}</code>"
       </p>
 
       <pre class="bg-dark text-light p-2">

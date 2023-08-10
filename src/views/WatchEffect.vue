@@ -33,7 +33,7 @@
       </div>
       <p class="my-1" :data-theme="themeStore.theme">
         觸發 watchEffect 就改變下面的文字 <br />
-        "{{ watchEddect1 }}"
+        "<code>{{ watchEddect1 }}</code>"
       </p>
       <pre class="bg-dark text-light p-2">
 const t1 = ref('')
@@ -55,7 +55,7 @@ watchEffect(() => {
       <button type="button" class="btn btn-secondary me-2 p-1" @click="addNum">點我 num +1</button>
 
       <p class="my-1" :data-theme="themeStore.theme">
-        num: "{{ num }}" <br />
+        num: "<code>{{ num }}"</code> <br />
         watchEffect 狀態: <span :class="num==3?'text-secondary':'text-success'">"{{ num===3?'off':'on' }}"</span>
       </p>
       <pre class="bg-dark text-light p-2">
