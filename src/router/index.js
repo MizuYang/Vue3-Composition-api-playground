@@ -35,6 +35,32 @@ const routes = [
     path: '/emits',
     name: 'emits',
     component: () => import('@/views/EmitFather.vue')
+  },
+  {
+    path: '/scriptSetup',
+    name: 'scriptSetup',
+    component: () => import('@/views/scriptSetup/ScriptSetup.vue'),
+    children: [
+      {
+        path: 'common',
+        name: 'common-child',
+        component: () => import('@/views/scriptSetup/items/CommonTest.vue')
+      },
+      {
+        path: 'props',
+        name: 'props-child',
+        component: () => import('@/views/scriptSetup/items/PropsFather.vue')
+      },
+      {
+        path: 'emits',
+        name: 'emits-child',
+        component: () => import('@/views/scriptSetup/items/EmitFather.vue')
+      },
+      {
+        path: '/scriptSetup/:pathMatch(.*)*',
+        redirect: '/scriptSetup/common'
+      }
+    ]
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',
