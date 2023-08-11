@@ -37,6 +37,11 @@ const routes = [
     component: () => import('@/views/EmitFather.vue')
   },
   {
+    path: '/defineExpose',
+    name: 'defineExpose',
+    component: () => import('@/views/DefineExposeFather.vue')
+  },
+  {
     path: '/scriptSetup',
     name: 'scriptSetup',
     component: () => import('@/views/scriptSetup/ScriptSetup.vue'),

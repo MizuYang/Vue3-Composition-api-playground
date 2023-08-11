@@ -9,6 +9,7 @@
       <router-link to="/component" class="text-light mx-2">component</router-link> |
       <router-link to="/props" class="text-light mx-2">props</router-link> |
       <router-link to="/emits" class="text-light mx-2">emits</router-link> |
+      <router-link to="/defineExpose" class="text-light mx-2">defineExpose</router-link> |
       <router-link to="/scriptSetup" class="text-light mx-2">scriptSetup</router-link>
       <ChangeThemeSwitch />
     </div>

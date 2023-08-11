@@ -1,4 +1,9 @@
 <template>
+  <div class="controls d-none">
+    <label for="sync" ref="checkbox">Sync &lt;body&gt;</label>
+    <input id="sync" type="checkbox" />
+  </div>
+
   <button class="toggle position-absolute top-50 end-0 resposive-translateY me-5"
           ref="themeSwitch"
           :aria-pressed="themeStore.theme==='dark'"
@@ -685,7 +690,7 @@ export default {
 
 .resposive-translateY {
   transform:translateY(-50%);
-  @media (max-width:850px) {
+  @media (max-width:970px) {
     transform:translateY(110%);
   }
 
