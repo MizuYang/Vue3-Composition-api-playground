@@ -4,3 +4,7 @@
   - Component
   - Props
   - Emits
+  - :is + keep-alive
+  - slots
+  - teleport
+  - modules

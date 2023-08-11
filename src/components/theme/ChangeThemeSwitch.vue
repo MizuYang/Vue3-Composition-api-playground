@@ -691,7 +691,7 @@ export default {
 .resposive-translateY {
   transform:translateY(-50%);
   @media (max-width:970px) {
-    transform:translateY(110%);
+    transform:translateY(130%);
   }
 
 }

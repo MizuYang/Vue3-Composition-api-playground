@@ -2,48 +2,75 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: 'home',
+    meta: {
+      pageName: 'home'
+    },
     component: () => import('@/views/HomeView.vue')
   },
   {
     path: '/watch',
     name: 'watch',
+    meta: {
+      pageName: 'watch'
+    },
     component: () => import('@/views/WatchTest.vue')
   },
   {
     path: '/computed',
     name: 'computed',
+    meta: {
+      pageName: 'computed'
+    },
     component: () => import('@/views/ComputedTest.vue')
   },
   {
     path: '/watchEffect',
     name: 'watchEffect',
+    meta: {
+      pageName: 'watchEffect'
+    },
     component: () => import('@/views/WatchEffect.vue')
   },
   {
     path: '/component',
     name: 'component',
+    meta: {
+      pageName: 'component'
+    },
     component: () => import('@/views/ComponentTest.vue')
   },
   {
     path: '/props',
     name: 'props',
+    meta: {
+      pageName: 'props'
+    },
     component: () => import('@/views/PropsFather.vue')
   },
   {
     path: '/emits',
     name: 'emits',
+    meta: {
+      pageName: 'emits'
+    },
     component: () => import('@/views/EmitFather.vue')
   },
   {
     path: '/defineExpose',
     name: 'defineExpose',
+    meta: {
+      pageName: 'defineExpose'
+    },
     component: () => import('@/views/DefineExposeFather.vue')
   },
   {
     path: '/scriptSetup',
     name: 'scriptSetup',
+    meta: {
+      pageName: 'scriptSetup'
+    },
     component: () => import('@/views/scriptSetup/ScriptSetup.vue'),
     children: [
       {
