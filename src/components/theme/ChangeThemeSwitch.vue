@@ -1,9 +1,5 @@
 <template>
-  <div class="controls d-none">
-    <label for="sync" ref="checkbox">Sync &lt;body&gt;</label>
-    <input id="sync" type="checkbox" />
-  </div>
-  <button class="toggle"
+  <button class="toggle position-absolute top-50 end-0 resposive-translateY me-5"
           ref="themeSwitch"
           :aria-pressed="themeStore.theme==='dark'"
           title="Toggle Dark Mode"
@@ -339,7 +335,8 @@ export default {
   /*   --slide-ease: cubic-bezier(.8,-0.3,.2,1.3); */
   --easing: var(--slide-ease);
   --speed: 0.5s;
-  --width: clamp(200px, 45vmin, 500px);
+  // --width: clamp(200px, 45vmin, 500px);
+  --width: 80px;
   --ar: 8 / 3;
   --ray: hsl(0 0% 100% / 0.5);
   --sun: hsl(47, 91%, 58%);
@@ -667,20 +664,30 @@ export default {
   }
 }
 
-.controls {
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: sans-serif;
-  color: var(--color);
-  transition: color var(--speed) var(--easing);
-}
+// .controls {
+//   position: absolute;
+//   left: 0;
+//   // position: fixed;
+//   // bottom: 1rem;
+//   // right: 1rem;
+//   display: flex;
+//   align-items: center;
+//   gap: 0.5rem;
+//   font-family: sans-serif;
+//   color: var(--color);
+//   transition: color var(--speed) var(--easing);
+// }
 
 [type="checkbox"] {
   accent-color: var(--color);
   transition: accent-color var(--speed) var(--easing);
+}
+
+.resposive-translateY {
+  transform:translateY(-50%);
+  @media (max-width:850px) {
+    transform:translateY(110%);
+  }
+
 }
 </style>
