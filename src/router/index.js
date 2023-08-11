@@ -93,6 +93,14 @@ const routes = [
         redirect: '/scriptSetup/common'
       }
     ]
+  },
+  {
+    path: '/vBindIs',
+    name: 'vBindIs',
+    meta: {
+      pageName: 'vBindIs'
+    },
+    component: () => import('@/views/VbindIs.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',

@@ -27,7 +27,9 @@ const data = reactive({
     'props',
     'emits',
     'defineExpose',
-    'scriptSetup'],
+    'scriptSetup',
+    'vBindIs'
+  ],
   currentPageName: ''
 })
 
