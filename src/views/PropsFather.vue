@@ -1,12 +1,12 @@
 <template>
-  <div class="container my-3 px-0 py-3">
-    <section class="p-3">
+  <div class="container mt-3 px-0 p-3">
+    <section class="p-3 pb-0">
       <h2 class="text-20 mb-2" :data-theme="themeStore.theme">父層</h2>
 
       <input type="text" class="form-control" ref="input" v-model="fatherVariable">
-      <p class="text-20  my-2" :data-theme="themeStore.theme">fatherVariable：<code>{{ fatherVariable }}</code></p>
+      <p class="my-2" :data-theme="themeStore.theme">fatherVariable：<code>{{ fatherVariable }}</code></p>
 
-      <pre class="bg-dark text-light p-2">
+      <pre class="bg-dark text-light mb-1 p-2">
 {{ '<PropsChild :fatherVariable="fatherVariable" />' }}</pre>
       <pre class="bg-dark text-light p-2">
 const fatherVariable = ref('父層的文字')</pre>
