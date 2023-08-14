@@ -101,6 +101,14 @@ const routes = [
       pageName: 'vBindIs'
     },
     component: () => import('@/views/VbindIs.vue')
+  },
+  {
+    path: '/slot',
+    name: 'slot',
+    meta: {
+      pageName: 'slot'
+    },
+    component: () => import('@/views/SlotFather.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',

@@ -9,7 +9,6 @@
       </button>
     </li>
   </ul>
-  {{ tabStyle }}
 </template>
 
 <script setup>
@@ -38,8 +37,7 @@ const data = reactive({
       path: '/scriptSetup/emits'
     }
   ],
-  currentTab: 'common',
-  tabStyle: ''
+  currentTab: 'common'
 })
 
 watchEffect(() => {

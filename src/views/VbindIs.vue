@@ -146,7 +146,7 @@ import CComponent from '@/components/vBindIs/CComponent.vue'</pre>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, shallowRef } from 'vue'
 import { useStore } from 'vuex'
 import AComponent from '@/components/vBindIs/AComponent.vue'
 import BComponent from '@/components/vBindIs/BComponent.vue'
@@ -157,7 +157,7 @@ const themeStore = store.state.theme
 // 以往寫法範例
 const curComponent1 = ref('AComponent')
 // 更好寫法範例
-const curComponent2 = ref(AComponent)
+const curComponent2 = shallowRef(AComponent)
 
 function changeComponent1 (component) {
   curComponent1.value = component

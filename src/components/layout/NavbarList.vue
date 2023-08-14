@@ -28,7 +28,8 @@ const data = reactive({
     'emits',
     'defineExpose',
     'scriptSetup',
-    'vBindIs'
+    'vBindIs',
+    'slot'
   ],
   currentPageName: ''
 })
