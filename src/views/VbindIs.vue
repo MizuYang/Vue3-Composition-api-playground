@@ -1,12 +1,12 @@
 <template>
   <div class="container d-flex flex-column mt-3 px-0 pt-3">
     <header class="mt-3">
-      <h2 class="text-20 mb-1" :data-theme="themeStore.theme"><code>v-bind:is&nbsp; (:is)</code></h2>
+      <h2 class="text-20 mb-1" :data-theme="theme"><code>v-bind:is&nbsp; (:is)</code></h2>
     </header>
 
     <!-- 匯入元件 -->
     <section class="p-3">
-      <h3 class="text-18 mt-2" :data-theme="themeStore.theme">
+      <h3 class="text-18 mt-2" :data-theme="theme">
         匯入元件
       </h3>
       <pre class="bg-dark text-light mt-3 ms-3 p-2">import AComponent from '@/components/vBindIs/AComponent.vue'
@@ -16,28 +16,28 @@ import CComponent from '@/components/vBindIs/CComponent.vue'</pre>
 
     <!-- 以往寫法：用 v-if、v-else-if 判斷當前顯是哪個頁面 -->
     <section class="p-3">
-      <h3 class="text-18 mb-2" :data-theme="themeStore.theme">
+      <h3 class="text-18 mb-2" :data-theme="theme">
         以往寫法：用 v-if、v-else-if 判斷當前顯是哪個頁面
       </h3>
 
       <!-- 切換頁面的 Tabs -->
       <div class="p-3 pb-0">
-        <h3 class="mb-3" :data-theme="themeStore.theme">點下方按鈕切換元件</h3>
+        <h3 class="mb-3" :data-theme="theme">點下方按鈕切換元件</h3>
         <ul class="d-flex">
           <li class="me-3">
-            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="themeStore.theme"
+            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="theme"
             @click="changeComponent1('AComponent')">
               A 元件
             </button>
           </li>
           <li class="me-3">
-            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="themeStore.theme"
+            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="theme"
             @click="changeComponent1('BComponent')">
               B 元件
             </button>
           </li>
           <li>
-            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="themeStore.theme"
+            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="theme"
             @click="changeComponent1('CComponent')">
               C 元件
             </button>
@@ -62,28 +62,28 @@ import CComponent from '@/components/vBindIs/CComponent.vue'</pre>
 
     <!-- 更好的寫法：用 :is 動態切換元件即可 -->
     <section class="mb-2 p-3">
-      <h3 class="text-18 mb-2" :data-theme="themeStore.theme">
+      <h3 class="text-18 mb-2" :data-theme="theme">
         更好的寫法：用 :is 動態切換元件即可
       </h3>
 
       <!-- 切換頁面的 Tabs -->
       <div class="p-3 pb-0">
-        <h3 class="mb-3" :data-theme="themeStore.theme">點下方按鈕切換元件</h3>
+        <h3 class="mb-3" :data-theme="theme">點下方按鈕切換元件</h3>
         <ul class="d-flex">
           <li class="me-3">
-            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="themeStore.theme"
+            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="theme"
             @click="changeComponent2(AComponent)">
               A 元件
             </button>
           </li>
           <li class="me-3">
-            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="themeStore.theme"
+            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="theme"
             @click="changeComponent2(BComponent)">
               B 元件
             </button>
           </li>
           <li>
-            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="themeStore.theme"
+            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="theme"
             @click="changeComponent2(CComponent)">
               C 元件
             </button>
@@ -104,28 +104,28 @@ import CComponent from '@/components/vBindIs/CComponent.vue'</pre>
 
     <!-- Keep-Alive  -->
     <section class="mb-2 p-3">
-      <h3 class="text-20 mb-2" :data-theme="themeStore.theme">
+      <h3 class="text-20 mb-2" :data-theme="theme">
         <code>{{ '<Keep-Alive>' }}</code>
       </h3>
 
       <!-- 切換頁面的 Tabs -->
       <div class="mb-3 p-3 pb-0">
-        <h3 class="mb-3" :data-theme="themeStore.theme">點下方按鈕切換元件，觀察文字欄位的字元是否還存在</h3>
+        <h3 class="mb-3" :data-theme="theme">點下方按鈕切換元件，觀察文字欄位的字元是否還存在</h3>
         <ul class="d-flex">
           <li class="me-3">
-            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="themeStore.theme"
+            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="theme"
             @click="changeComponent2(AComponent)">
               A 元件
             </button>
           </li>
           <li class="me-3">
-            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="themeStore.theme"
+            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="theme"
             @click="changeComponent2(BComponent)">
               B 元件
             </button>
           </li>
           <li>
-            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="themeStore.theme"
+            <button type="button" class="btn btn-secondary btn-sm p-1" :data-theme="theme"
             @click="changeComponent2(CComponent)">
               C 元件
             </button>
@@ -146,7 +146,7 @@ import CComponent from '@/components/vBindIs/CComponent.vue'</pre>
 </template>
 
 <script setup>
-import { ref, shallowRef } from 'vue'
+import { ref, toRef, shallowRef } from 'vue'
 import { useStore } from 'vuex'
 import AComponent from '@/components/vBindIs/AComponent.vue'
 import BComponent from '@/components/vBindIs/BComponent.vue'
@@ -154,6 +154,7 @@ import CComponent from '@/components/vBindIs/CComponent.vue'
 
 const store = useStore()
 const themeStore = store.state.theme
+const theme = toRef(themeStore, 'theme')
 // 以往寫法範例
 const curComponent1 = ref('AComponent')
 // 更好寫法範例

@@ -4,7 +4,7 @@
       <button type="button" class="btn btn-hover px-2"
               @click="router.push(tab.path)"
               :style="tab.style"
-              :data-theme="themeStore.theme">
+              :data-theme="theme">
         {{ tab.tabName }}
       </button>
     </li>
@@ -12,11 +12,12 @@
 </template>
 
 <script setup>
-import { reactive, watch, watchEffect, onMounted } from 'vue'
+import { reactive, watch, watchEffect, onMounted, toRef } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import { useStore } from 'vuex'
 const store = useStore()
 const themeStore = store.state.theme
+const theme = toRef(themeStore, 'theme')
 const router = useRouter()
 const route = useRoute()
 const data = reactive({
@@ -41,7 +42,6 @@ const data = reactive({
 })
 
 watchEffect(() => {
-  const { theme } = themeStore // dark, light
   const currentTab = data.currentTab
   const styleData = {
     dark: {
@@ -59,9 +59,9 @@ watchEffect(() => {
     data.tabsData.forEach(item => {
       const isCurrentTab = item.tabName === currentTab
       if (isCurrentTab) {
-        item.style = styleData[theme].isCurrentTab
+        item.style = styleData[theme.value].isCurrentTab
       } else {
-        item.style = styleData[theme].default
+        item.style = styleData[theme.value].default
       }
     })
   }

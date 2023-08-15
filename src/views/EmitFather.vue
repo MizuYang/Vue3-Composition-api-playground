@@ -21,37 +21,20 @@ return {
   </div>
 </template>
 
-<script>
-import { ref, watchEffect } from 'vue'
+<script setup>
+import { ref, toRef } from 'vue'
 import { useStore } from 'vuex'
 import EmitsChild from '@/components/EmitsChild.vue'
-export default {
-  components: {
-    EmitsChild
-  },
-  setup () {
-    const store = useStore()
-    const themeStore = store.state.theme
-    const theme = ref(themeStore.theme)
-    const num = ref(0)
 
-    watchEffect(() => {
-      theme.value = themeStore.theme
-    })
+const store = useStore()
+const themeStore = store.state.theme
+const theme = toRef(themeStore, 'theme')
+const num = ref(0)
 
-    function addNum () {
-      num.value++
-    }
-
-    return {
-      num,
-      theme,
-      themeStore,
-      addNum
-    }
-  }
-
+function addNum () {
+  num.value++
 }
+
 </script>
 
 <style lang='scss' scope></style>

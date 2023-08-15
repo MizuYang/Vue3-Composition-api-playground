@@ -1,7 +1,7 @@
 <template>
   <section class="px-3">
-    <h2 class="text-20 mb-1" :data-theme="themeStore.theme">子層</h2>
-    <p class="mb-1" :data-theme="themeStore.theme">
+    <h2 class="text-20 mb-1" :data-theme="theme">子層</h2>
+    <p class="mb-1" :data-theme="theme">
       myFatherVariable：<code>{{ myFatherVariable }}</code> <br />
       <pre class="bg-dark text-16 text-light p-2">
 props: ['fatherVariable'],
@@ -24,7 +24,7 @@ setup (props) {
   <!-- toRef、toRefs -->
   <section class="px-3">
     <div>
-      <p class="text-20" :data-theme="themeStore.theme">
+      <p class="text-20" :data-theme="theme">
         <code>toRef()</code>：<code v-pre>{{ myToRef }}</code> => {{ myToRef }}
       </p>
       <pre class="bg-dark text-light mb-1 p-2">const myToRef = toRef(props, 'fatherVariable')
@@ -32,7 +32,7 @@ return { myToRef }</pre>
     </div>
 
     <div>
-      <p class="text-20" :data-theme="themeStore.theme">
+      <p class="text-20" :data-theme="theme">
         <code>toRefs()</code>：<code v-pre>{{ myToRefs }}</code> => {{ myToRefs }}
         <pre class="bg-dark text-16 text-light mb-1 p-2">const { fatherVariable: myToRefs } = toRefs(props)
 return { myToRefs }</pre>
@@ -50,6 +50,7 @@ export default {
   setup (props) {
     const store = useStore()
     const themeStore = store.state.theme
+    const theme = toRef(themeStore, 'theme')
     const myFatherVariable = ref(props.fatherVariable)
     const myToRef = toRef(props, 'fatherVariable')
     const { fatherVariable: myToRefs } = toRefs(props)
@@ -60,7 +61,7 @@ export default {
     })
 
     return {
-      themeStore,
+      theme,
       myFatherVariable,
       props,
       myToRef,

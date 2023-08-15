@@ -6,7 +6,7 @@
 
   <button class="toggle position-absolute top-50 end-0 resposive-translateY me-5"
           ref="themeSwitch"
-          :aria-pressed="themeStore.theme==='dark'"
+          :aria-pressed="theme==='dark'"
           title="Toggle Dark Mode"
           @click="toggle">
     <span class="toggle__content">
@@ -299,32 +299,21 @@
   </button>
 </template>
 
-<script>
-import { ref, computed } from 'vue'
+<script setup>
+import { ref, toRef } from 'vue'
 import { useStore } from 'vuex'
-export default {
-  setup () {
-    const store = useStore()
-    const changeTheme = () => store.dispatch('theme/changeTheme')
-    const themeStore = computed(() => store.state.theme)
-    const checkbox = ref(null)
-    const themeSwitch = ref(null)
+const store = useStore()
+const changeTheme = () => store.dispatch('theme/changeTheme')
+const themeStore = store.state.theme
+const theme = toRef(themeStore, 'theme')
+const checkbox = ref(null)
+const themeSwitch = ref(null)
 
-    function toggle () {
-      changeTheme()
-      const IS_PRESSED = themeSwitch.value.matches('[aria-pressed=true]')
-      if (checkbox.value.checked) { document.body.setAttribute('data-dark-mode', !IS_PRESSED) }
-      themeSwitch.value.setAttribute('aria-pressed', !IS_PRESSED)
-    }
-
-    return {
-      toggle,
-      checkbox,
-      themeSwitch,
-      changeTheme,
-      themeStore
-    }
-  }
+function toggle () {
+  changeTheme()
+  const IS_PRESSED = themeSwitch.value.matches('[aria-pressed=true]')
+  if (checkbox.value.checked) { document.body.setAttribute('data-dark-mode', !IS_PRESSED) }
+  themeSwitch.value.setAttribute('aria-pressed', !IS_PRESSED)
 }
 </script>
 
