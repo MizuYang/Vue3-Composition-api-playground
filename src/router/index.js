@@ -125,6 +125,14 @@ const routes = [
       pageName: 'teleport'
     },
     component: () => import('@/views/TeleportFather.vue')
+  },
+  {
+    path: '/readonly',
+    name: 'readonly',
+    meta: {
+      pageName: 'readonly'
+    },
+    component: () => import('@/views/Readonly.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',
