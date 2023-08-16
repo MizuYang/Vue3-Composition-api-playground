@@ -109,6 +109,14 @@ const routes = [
       pageName: 'slot'
     },
     component: () => import('@/views/SlotFather.vue')
+  },
+  { // 生命週期
+    path: '/lifecycle',
+    name: 'lifecycle',
+    meta: {
+      pageName: 'lifecycle'
+    },
+    component: () => import('@/views/Lifecycle.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',

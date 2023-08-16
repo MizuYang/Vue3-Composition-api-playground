@@ -29,7 +29,8 @@ const data = reactive({
     'defineExpose',
     'scriptSetup',
     'vBindIs',
-    'slot'
+    'slot',
+    'lifecycle'
   ],
   currentPageName: ''
 })
