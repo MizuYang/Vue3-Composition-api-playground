@@ -25,6 +25,9 @@ body {
     color: #fff;
     background-color: #000;
   }
+  .area {
+    background-color: #d5d5d5;
+  }
 }
 // 黑暗樣式
 [data-theme="dark"] {
@@ -38,6 +41,9 @@ body {
   &.btn-hover:hover {
     color: #000;
     background-color: #fff;
+  }
+  .area {
+    background-color: #3c3c3c;
   }
 }
 // 改變滑鼠圖標

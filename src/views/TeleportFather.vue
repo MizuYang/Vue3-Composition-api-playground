@@ -4,8 +4,7 @@
        <h2 class="text-20">Teleport 傳送</h2>
     </section>
 
-    <section class="ms-3 my-1 px-3" style="padding-bottom:130px;"
-             :style="`background-color:${theme==='light'?'#d5d5d5':'#202224'};`">
+    <section class="area ms-3 my-1 px-3" style="padding-bottom:130px;">
       <h3 class="py-2">父層</h3>
 
       <div class="position-relative">
@@ -14,13 +13,11 @@
       </div>
     </section>
 
-    <section class="ms-3 my-1 px-3" style="padding-bottom:130px;"
-             :style="`background-color:${theme==='light'?'#d5d5d5':'#202224'};`">
+    <section class="area ms-3 my-1 px-3" style="padding-bottom:130px;">
       <TeleportChild />
     </section>
 
-    <section class="ms-3 my-1 px-3" style="padding-bottom:130px;"
-             :style="`background-color:${theme==='light'?'#d5d5d5':'#202224'};`">
+    <section class="area ms-3 my-1 px-3" style="padding-bottom:130px;">
       <TeleportChild2 />
     </section>
 
