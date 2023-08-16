@@ -1,7 +1,7 @@
 <template>
   <ul class="container-lg position-relative d-flex flex-wrap align-items-center bg-dark text-light py-2">
       <li v-for="item in data.navbar" :key="`nav-${item}`" class="ms-1">
-        <RouterLink :to="`/${item}`" class="text-light px-1" :class="{'bg-fff text-dark':data.currentPageName===item}">
+        <RouterLink :to="`/${item}`" class="text-light px-1" :class="{'bg-fff text-dark':data.currentPageName===item}" style="transition: all .5s;">
           {{ item }}
         </RouterLink>
         |
