@@ -117,6 +117,14 @@ const routes = [
       pageName: 'lifecycle'
     },
     component: () => import('@/views/Lifecycle.vue')
+  },
+  {
+    path: '/teleport',
+    name: 'teleport',
+    meta: {
+      pageName: 'teleport'
+    },
+    component: () => import('@/views/TeleportFather.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',

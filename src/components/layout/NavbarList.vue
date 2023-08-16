@@ -30,7 +30,8 @@ const data = reactive({
     'scriptSetup',
     'vBindIs',
     'slot',
-    'lifecycle'
+    'lifecycle',
+    'teleport'
   ],
   currentPageName: ''
 })
