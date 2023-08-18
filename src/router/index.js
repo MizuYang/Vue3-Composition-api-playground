@@ -141,6 +141,14 @@ const routes = [
       pageName: 'toRaw'
     },
     component: () => import('@/views/ToRaw.vue')
+  },
+  {
+    path: '/composables',
+    name: 'composables',
+    meta: {
+      pageName: 'composables'
+    },
+    component: () => import('@/views/Composables.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',

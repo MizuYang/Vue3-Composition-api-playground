@@ -33,7 +33,8 @@ const data = reactive({
     'lifecycle',
     'teleport',
     'readonly',
-    'toRaw'
+    'toRaw',
+    'composables'
   ],
   currentPageName: ''
 })
