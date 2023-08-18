@@ -112,6 +112,7 @@ function useAddNum () {
         <div>
           <p class="mt-3 mb-2">原檔案</p>
           <pre class="bg-dark text-light mt-1 mb-0 p-2">import { useAddNum } from '@/composables/useAddNum.js'
+
 // 2. 點按鈕 => 數字++
 const { num, addNum } = useAddNum()</pre>
         </div>
@@ -169,21 +170,22 @@ function useGetScrollTop () {
         <!-- 原檔案 -->
         <div>
           <p class="mt-3 mb-2">原檔案</p>
-          <pre class="bg-dark text-light mt-1 mb-0 p-2">import { useAddNum } from '@/composables/useAddNum.js'
-// 2. 點按鈕 => 數字++
-const { num, addNum } = useAddNum()</pre>
+          <pre class="bg-dark text-light mt-1 mb-0 p-2">import { useGetScrollTop } from '@/composables/useGetScrollTop.js'
+
+// 3. 滾動條 取得 scrollTop
+const { scrollTop, getScrollTop } = useGetScrollTop()</pre>
         </div>
         <!-- composables/useGetMousePosition.js -->
         <div>
           <p class="mt-3 mb-2">composables/useGetMousePosition.js</p>
-          <pre class="bg-dark text-light mt-1 mb-0 p-2">export function useAddNum () {
-  const states = reactive({ num: 0 })
+          <pre class="bg-dark text-light mt-1 mb-0 p-2">export function useGetScrollTop () {
+  const states = reactive({ scrollTop: 0 })
 
-  function addNum () { states.num++ }
+  function getScrollTop (e) { states.scrollTop = e.target.scrollTop }
 
   return {
     ...toRefs(states),
-    addNum
+    getScrollTop
   }
 }
 </pre>
