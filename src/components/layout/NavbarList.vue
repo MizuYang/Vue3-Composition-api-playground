@@ -32,7 +32,8 @@ const data = reactive({
     'slot',
     'lifecycle',
     'teleport',
-    'readonly'
+    'readonly',
+    'toRaw'
   ],
   currentPageName: ''
 })

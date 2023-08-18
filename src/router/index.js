@@ -133,6 +133,14 @@ const routes = [
       pageName: 'readonly'
     },
     component: () => import('@/views/Readonly.vue')
+  },
+  {
+    path: '/toRaw',
+    name: 'toRaw',
+    meta: {
+      pageName: 'toRaw'
+    },
+    component: () => import('@/views/ToRaw.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',
