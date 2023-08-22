@@ -11,6 +11,7 @@
 
     <section class="my-3 px-3">
       <div class="d-flex align-items-center mb-3">
+        <!-- 新增待辦 -->
         <input type="text" class="form-control" ref="input"
                @keydown.enter="addTodo"
                v-model="content" placeholder="新增待辦事項">
@@ -24,24 +25,35 @@
 
     </section>
     <section>
-      <div class="container">
-        <div class="row row-cols-3 g-0 text-center mx-1">
-          <div class="col">
-            <button type="button" class="w-100 h-100 btn btn-primary py-2">全部({{ todoData.length }})</button>
-          </div>
-          <div class="col">
-            <button type="button" class="w-100 h-100 btn btn-success py-2">已完成({{ doneTodoData.length }})</button>
-          </div>
-          <div class="col">
-            <button type="button" class="w-100 h-100 btn bg-gray text-light py-2">未完成({{ unDoneTodoData.length }})</button>
+      <template v-if="todoData.length">
+        <!-- 待辦切換 tab -->
+        <div class="container">
+          <div class="row row-cols-3 g-0 text-center mx-1">
+            <div class="col">
+              <button type="button" class="w-100 h-100 btn btn-primary py-2"
+                      @click="todoTabType='all'">
+                全部({{ todoData.length }})
+              </button>
+            </div>
+            <div class="col">
+              <button type="button" class="w-100 h-100 btn btn-success py-2"
+                      @click="todoTabType='done'">
+                已完成({{ doneTodoData.length }})
+              </button>
+            </div>
+            <div class="col">
+              <button type="button" class="w-100 h-100 btn bg-gray text-light py-2"
+                      @click="todoTabType='unDone'">
+                未完成({{ unDoneTodoData.length }})
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <template v-if="todoData.length">
+        <!-- 待辦列表 -->
         <ul class="area m-3 mt-0 py-4">
             <li class="position-relative px-5 mb-2"
                 :class="{'ps-4':todo.todoComplateTip&&!todo.editShow}"
-                v-for="(todo,idx) in todoData" :key="`${idx}-${todo.id}`"
+                v-for="(todo,idx) in filterTodoData" :key="`${idx}-${todo.id}`"
                 @click="todoToggle($event,todo)"
                 @mouseenter="todo.todoHover=true"
                 @mouseleave="todo.todoHover=false"
@@ -155,6 +167,7 @@ const todoStore = store.state.todoList
 
 const input = ref(null)
 const content = ref('')
+const todoTabType = ref('all')
 
 // 取得代辦
 const { todoData } = toRefs(todoStore)
@@ -162,6 +175,19 @@ console.log(todoData.value)
 
 const doneTodoData = computed(() => todoData.value.filter(todo => todo.isdone))
 const unDoneTodoData = computed(() => todoData.value.filter(todo => !todo.isdone))
+
+const filterTodoData = computed(() => {
+  let result = ''
+  if (todoTabType.value === 'all') {
+    result = todoData.value
+  } else if (todoTabType.value === 'done') {
+    result = doneTodoData.value
+  } else if (todoTabType.value === 'unDone') {
+    result = unDoneTodoData.value
+  }
+
+  return result
+})
 
 function addTodo () {
   if (!content.value) return
