@@ -3,29 +3,22 @@ import { createStore } from 'vuex'
 
 // 其它store
 import theme from '@/vuex/store/theme.js'
-import todoList from '@/vuex/store/demo/todoList.js'
+import todoList from '@/vuex/store/demo/todolist/todoList.js'
+import delModal from '@/vuex/store/demo/todolist/modal/delModal.js'
 
 export default createStore({
   strict: false, // 嚴謹模式
   state: {
   },
   actions: {
-    method (store, data) {
-      // 呼叫 actions 方法
-      // store.dispatch('方法名稱', 參數)
-      // 呼叫 mutations 方法
-      // store.commit('方法名稱', 參數)
-    }
   },
   mutations: {
-    UPDATE_DATA (state, data) {
-      // state.data = data
-    }
   },
   getters: {
   },
   modules: {
     theme,
-    todoList
+    todoList,
+    delModal
   }
 })

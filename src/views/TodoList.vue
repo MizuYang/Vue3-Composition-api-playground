@@ -134,12 +134,12 @@
                           <!-- 刪除按鈕 -->
                           <button type="button" class="btn d-block text-light me-3 p-1"
                                   data-btn="remove"
-                                  @click="removeTodo(todo.id)"
+                                  @click="modalShow(todo)"
                                   @mouseenter="todo.todoDelHover=true"
                                   @mouseleave="todo.todoDelHover=false"
                                   >
                               <img :src="require(`@/assets/images/demo/todoList/delete-${theme}.svg`)"
-                            class="d-block">
+                            class="d-block" data-btn="remove">
                           </button>
                         </template>
                       </div>
@@ -154,25 +154,28 @@
       <!-- {{todoData}} -->
     </section>
   </div>
+
+  <!-- 刪除 modal -->
+  <DelModal @removeTodo="removeTodo" />
 </template>
 
 <script setup>
 import { onMounted, ref, reactive, toRefs, computed } from 'vue' // eslint-disable-line
 import { useStore } from 'vuex'
 import Banner from '@/components/demo/todoList/Banner.vue'
+import DelModal from '@/components/demo/todoList/modal/DelModal.vue'
 
+// store
 const store = useStore()
 const { dispatch, commit } = store
-const themeStore = store.state.theme
-const { theme } = toRefs(themeStore)
-const todoStore = store.state.todoList
+const { theme } = toRefs(store.state.theme)
+const { todoData } = toRefs(store.state.todoList)
 
 const input = ref(null)
 const content = ref('')
 const todoTabType = ref('all')
 
 // 取得代辦
-const { todoData } = toRefs(todoStore)
 console.log(todoData.value)
 
 const doneTodoData = computed(() => todoData.value.filter(todo => todo.isdone))
@@ -220,6 +223,7 @@ function todoToggle (e, todo) {
 function removeTodo (id) {
   const deleteIdx = todoData.value.findIndex(todo => todo.id === id)
   dispatch('todoList/removeTodo', deleteIdx)
+  dispatch('delModal/modalHide')
 }
 
 function todoComplateTipShow (todo) {
@@ -241,6 +245,12 @@ function editHide (todo) {
   todo.editShow = false
   todo.todoEditHover = false
   dispatch('todoList/setLocalStorage')
+}
+
+function modalShow (todo) {
+  todo.todoDelHover = false
+  dispatch('delModal/modalShow')
+  commit('delModal/GET_DEL_TODO_INFO', todo)
 }
 
 onMounted(() => {
