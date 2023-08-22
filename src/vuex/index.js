@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 
 // 其它store
 import theme from '@/vuex/store/theme.js'
+import todoList from '@/vuex/store/demo/todoList.js'
 
 export default createStore({
   strict: false, // 嚴謹模式
@@ -24,6 +25,7 @@ export default createStore({
   getters: {
   },
   modules: {
-    theme
+    theme,
+    todoList
   }
 })

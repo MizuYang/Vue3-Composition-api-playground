@@ -198,9 +198,9 @@ const { scrollTop, getScrollTop } = useGetScrollTop()</pre>
 <script setup>
 import { ref, reactive, toRefs, onUnmounted, onMounted } from 'vue' // eslint-disable-line
 import { useStore } from 'vuex'
-import { useGetMousePosition } from '@/composables/useGetMousePosition.js'
-import { useAddNum } from '@/composables/useAddNum.js'
-import { useGetScrollTop } from '@/composables/useGetScrollTop.js'
+import { useGetMousePosition } from '@/composables/composablesDemo/useGetMousePosition.js'
+import { useAddNum } from '@/composables/composablesDemo/useAddNum.js'
+import { useGetScrollTop } from '@/composables/composablesDemo/useGetScrollTop.js'
 // import throttle from 'lodash/throttle.js'
 
 const store = useStore()

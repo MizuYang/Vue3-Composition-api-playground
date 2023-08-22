@@ -149,6 +149,14 @@ const routes = [
       pageName: 'composables'
     },
     component: () => import('@/views/Composables.vue')
+  },
+  {
+    path: '/todoList',
+    name: 'todoList',
+    meta: {
+      pageName: 'todoList'
+    },
+    component: () => import('@/views/TodoList.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',
