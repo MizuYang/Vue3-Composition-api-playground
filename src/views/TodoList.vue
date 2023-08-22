@@ -27,28 +27,9 @@
     <section>
       <template v-if="todoData.length">
         <!-- 待辦切換 tab -->
-        <div class="container">
-          <div class="row row-cols-3 g-0 text-center mx-1">
-            <div class="col">
-              <button type="button" class="w-100 h-100 btn btn-primary py-2"
-                      @click="todoTabType='all'">
-                全部({{ todoData.length }})
-              </button>
-            </div>
-            <div class="col">
-              <button type="button" class="w-100 h-100 btn btn-success py-2"
-                      @click="todoTabType='done'">
-                已完成({{ doneTodoData.length }})
-              </button>
-            </div>
-            <div class="col">
-              <button type="button" class="w-100 h-100 btn bg-gray text-light py-2"
-                      @click="todoTabType='unDone'">
-                未完成({{ unDoneTodoData.length }})
-              </button>
-            </div>
-          </div>
-        </div>
+        <TodoTab :doneTodoData="doneTodoData"
+                 :unDoneTodoData="unDoneTodoData"
+                 @changeTodoType="changeTodoType" />
         <!-- 待辦列表 -->
         <ul class="area m-3 mt-0 py-4">
             <li class="position-relative px-5 mb-2"
@@ -162,6 +143,7 @@ import { toRefs } from 'vue'
 import { useStore } from 'vuex'
 import Banner from '@/components/demo/todoList/Banner.vue'
 import DelModal from '@/components/demo/todoList/modal/DelModal.vue'
+import TodoTab from '@/components/demo/todoList/TodoTab.vue'
 import { useTodoList } from '@/composables/todoList/useTodoList.js'
 
 // store
@@ -173,7 +155,7 @@ const { todoData } = toRefs(store.state.todoList)
 const {
   input,
   content,
-  todoTabType,
+  // todoTabType,
   doneTodoData,
   unDoneTodoData,
   filterTodoData,
@@ -184,7 +166,8 @@ const {
   todoHoverHide,
   editShow,
   editHide,
-  modalShow
+  modalShow,
+  changeTodoType
 } = useTodoList()
 
 // 取得代辦

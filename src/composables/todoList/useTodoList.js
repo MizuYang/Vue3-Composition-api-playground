@@ -41,7 +41,8 @@ export function useTodoList () {
     todoHoverHide,
     editShow,
     editHide,
-    modalShow
+    modalShow,
+    changeTodoType
   })
 
   function addTodo () {
@@ -57,7 +58,6 @@ export function useTodoList () {
     content.value = ''
     dispatch('todoList/addTodo', todo)
   }
-
   function todoToggle (e, todo) {
     const isRemoveBtn = e.target.dataset.btn === 'remove'
     const isEditBtn = e.target.dataset.btn === 'edit'
@@ -101,6 +101,10 @@ export function useTodoList () {
     todo.todoDelHover = false
     dispatch('delModal/modalShow')
     commit('delModal/GET_DEL_TODO_INFO', todo)
+  }
+
+  function changeTodoType (type) {
+    states.todoTabType = type
   }
 
   onMounted(() => {
