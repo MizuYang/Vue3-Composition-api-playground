@@ -1,8 +1,8 @@
 <template>
 
-    <header style="margin-top:90px;">
-      <Banner />
-    </header>
+  <header style="margin-top:90px;">
+    <Banner />
+  </header>
 
   <div class="container d-flex flex-column mt-3 px-0 pt-3" :data-theme="theme">
     <section class="my-3 px-3">
@@ -12,15 +12,7 @@
     <section class="my-3 px-3">
       <div class="d-flex align-items-center mb-3">
         <!-- 新增待辦 -->
-        <input type="text" class="form-control" ref="input"
-               @keydown.enter="addTodo"
-               v-model="content" placeholder="新增待辦事項">
-        <button type="button"
-                class="btn btn-primary"
-                :class="{'bg-secondary border-secondary opacity-75':!content}"
-                @click="addTodo"
-                :disabled="!content"
-                style="min-width:50px;padding:6px 0;">新增</button>
+        <AddTodoArea @addTodo="addTodo" />
       </div>
 
     </section>
@@ -144,6 +136,7 @@ import { useStore } from 'vuex'
 import Banner from '@/components/demo/todoList/Banner.vue'
 import DelModal from '@/components/demo/todoList/modal/DelModal.vue'
 import TodoTab from '@/components/demo/todoList/TodoTab.vue'
+import AddTodoArea from '@/components/demo/todoList/AddTodoArea.vue'
 import { useTodoList } from '@/composables/todoList/useTodoList.js'
 
 // store
@@ -153,9 +146,6 @@ const { theme } = toRefs(store.state.theme)
 const { todoData } = toRefs(store.state.todoList)
 
 const {
-  input,
-  content,
-  // todoTabType,
   doneTodoData,
   unDoneTodoData,
   filterTodoData,

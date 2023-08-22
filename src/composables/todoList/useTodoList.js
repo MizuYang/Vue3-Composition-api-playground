@@ -5,15 +5,13 @@ import { useStore } from 'vuex'
 export function useTodoList () {
   const store = useStore()
   const { dispatch, commit } = store
-  const { todoData } = toRefs(store.state.todoList)
+  const { todoData, inputEl, content } = toRefs(store.state.todoList)
 
   const input = ref(null)
-  const content = ref('')
   const todoTabType = ref('all')
 
   const doneTodoData = computed(() => todoData.value.filter(todo => todo.isdone))
   const unDoneTodoData = computed(() => todoData.value.filter(todo => !todo.isdone))
-
   const filterTodoData = computed(() => {
     let result = ''
     if (todoTabType.value === 'all') {
@@ -29,7 +27,6 @@ export function useTodoList () {
 
   const states = reactive({
     input,
-    content,
     todoTabType,
     doneTodoData,
     unDoneTodoData,
@@ -54,8 +51,8 @@ export function useTodoList () {
       id: new Date().getTime(),
       isdone: false
     }
-    input.value.focus()
-    content.value = ''
+    inputEl.value.focus()
+    commit('todoList/CLREA_CONTENT')
     dispatch('todoList/addTodo', todo)
   }
   function todoToggle (e, todo) {
@@ -108,6 +105,8 @@ export function useTodoList () {
   }
 
   onMounted(() => {
+    if (!input.value) return
+
     input.value.focus()
     commit('todoList/GET_INPUT_ELEMENT', input.value)
   })

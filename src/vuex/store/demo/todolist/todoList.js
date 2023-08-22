@@ -3,7 +3,8 @@
 const todoList = {
   namespaced: true,
   state: {
-    input: null,
+    inputEl: null,
+    content: '', // input 文字
     todoData: JSON.parse(localStorage.getItem('todoList')) || []
   },
   actions: {
@@ -27,7 +28,7 @@ const todoList = {
   },
   mutations: {
     GET_INPUT_ELEMENT (state, el) {
-      state.input = el
+      state.inputEl = el
     },
     ADD_TODO (state, todo) {
       if (!todo.name) return
@@ -41,6 +42,12 @@ const todoList = {
     },
     REMOVE_TODO (state, idx) {
       state.todoData.splice(idx, 1)
+    },
+    UPDATE_CONTENT (state, newContent) {
+      state.content = newContent
+    },
+    CLREA_CONTENT (state) {
+      state.content = ''
     }
   },
   getters: {
