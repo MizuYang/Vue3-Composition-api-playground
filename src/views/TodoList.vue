@@ -52,15 +52,15 @@
         <!-- 待辦列表 -->
         <ul class="area m-3 mt-0 py-4">
             <li class="position-relative px-5 mb-2"
-                :class="{'ps-4':todo.todoComplateTip&&!todo.editShow}"
+                :class="{'ps-4':todo.isTodoHoverShow&&!todo.editShow}"
                 v-for="(todo,idx) in filterTodoData" :key="`${idx}-${todo.id}`"
                 @click="todoToggle($event,todo)"
                 @mouseenter="todo.todoHover=true"
                 @mouseleave="todo.todoHover=false"
                 style="font-size:40px;transition: all .5s;">
                 <div class="d-flex align-items-center"
-                     @mouseenter="todo.editShow||todoComplateTipShow(todo)"
-                     @mouseleave="todoComplateTipHide(todo)">
+                     @mouseenter="todo.editShow||todoHoverShow(todo)"
+                     @mouseleave="todoHoverHide(todo)">
                     <!-- 刪除 hover -->
                     <template v-if='todo.todoDelHover'>
                       <img :src="require(`@/assets/images/demo/todoList/delete-${theme}.svg`)"
@@ -72,10 +72,10 @@
                            class="position-absolute d-block">
                     </template>
                     <!-- 完成待辦 hover tip (半透明) -->
-                    <template v-else-if="!todo.isdone&&todo.todoComplateTip">
+                    <template v-else-if="!todo.isdone&&todo.isTodoHoverShow">
                       <input type="checkbox"
                              class="position-absolute form-check-input ms-2 my-auto"
-                             :class="{'opacity-50':todo.todoComplateTip}"
+                             :class="{'opacity-50':todo.isTodoHoverShow}"
                              style="zoom:50%;"
                              checked>
                     </template>
@@ -108,7 +108,7 @@
                                       'todo-remove-hover': todo.todoDelHover,
                                       'todo-edit-hover': todo.todoEditHover,
                                       'todo-border-bottom':todo.todoHover}"
-                             :style="[!todo.isdone&&todo.todoComplateTip&&'margin-left:34.5px;',
+                             :style="[!todo.isdone&&todo.isTodoHoverShow&&'margin-left:34.5px;',
                                        todo.todoDelHover&&'margin-left:34px;',
                                        todo.todoEditHover&&'margin-left:34px;']"
                                        @mouseenter="todo.todoHover=true"
@@ -176,7 +176,7 @@ const content = ref('')
 const todoTabType = ref('all')
 
 // 取得代辦
-console.log(todoData.value)
+console.log('所有待辦: ', todoData.value)
 
 const doneTodoData = computed(() => todoData.value.filter(todo => todo.isdone))
 const unDoneTodoData = computed(() => todoData.value.filter(todo => !todo.isdone))
@@ -216,7 +216,7 @@ function todoToggle (e, todo) {
   todo.isdone = !todo.isdone
   // 初始化
   todo.todoHover = false
-  todo.todoComplateTip = false
+  todo.isTodoHoverShow = false
 
   dispatch('todoList/updateTodo', todo)
 }
@@ -226,16 +226,16 @@ function removeTodo (id) {
   dispatch('delModal/modalHide')
 }
 
-function todoComplateTipShow (todo) {
-  todo.todoComplateTip = true
+function todoHoverShow (todo) {
+  todo.isTodoHoverShow = true
 }
-function todoComplateTipHide (todo) {
-  todo.todoComplateTip = false
+function todoHoverHide (todo) {
+  todo.isTodoHoverShow = false
 }
 
 function editShow (todo) {
   todo.editShow = true
-  todo.todoComplateTip = false
+  todo.isTodoHoverShow = false
   const input = document.querySelector(`#editInput-${todo.id}`)
   setTimeout(() => {
     input.focus()
