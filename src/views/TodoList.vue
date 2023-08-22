@@ -66,6 +66,7 @@
                       <img :src="require(`@/assets/images/demo/todoList/delete-${theme}.svg`)"
                            class="position-absolute d-block">
                     </template>
+                    <!-- 編輯 hover -->
                     <template v-else-if='todo.todoEditHover'>
                       <img :src="require(`@/assets/images/demo/todoList/edit-${theme}.svg`)"
                            class="position-absolute d-block">
@@ -94,6 +95,7 @@
                              class="form-control w-75"
                              :id="`editInput-${todo.id}`"
                              v-model="todo.name"
+                             @keydown.enter="editHide(todo)"
                              @change="dispatch('todoList/updateTodo',todo)"
                              @blur="editHide(todo)"
                              style="margin-left:34px;">
