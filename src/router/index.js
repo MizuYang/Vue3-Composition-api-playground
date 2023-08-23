@@ -156,7 +156,7 @@ const routes = [
     meta: {
       pageName: 'todoList'
     },
-    component: () => import('@/views/TodoList.vue')
+    component: () => import('@/views/demo/TodoList.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',
