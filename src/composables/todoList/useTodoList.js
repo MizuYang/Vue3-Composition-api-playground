@@ -63,7 +63,7 @@ export function useTodoList () {
     todo.isdone = !todo.isdone
     // 初始化
     todo.todoHover = false
-    todo.isTodoHoverShow = false
+    todo.isTodoHover = false
 
     dispatch('todoList/updateTodo', todo)
   }
@@ -74,28 +74,28 @@ export function useTodoList () {
   }
 
   function todoHoverShow (todo) {
-    todo.isTodoHoverShow = true
+    todo.isTodoHover = true
   }
   function todoHoverHide (todo) {
-    todo.isTodoHoverShow = false
+    todo.isTodoHover = false
   }
 
   function editShow (todo) {
-    todo.editShow = true
-    todo.isTodoHoverShow = false
+    todo.isEditInputShow = true
+    todo.isTodoHover = false
     const input = document.querySelector(`#editInput-${todo.id}`)
     setTimeout(() => {
       input.focus()
     })
   }
   function editHide (todo) {
-    todo.editShow = false
-    todo.todoEditHover = false
+    todo.isEditInputShow = false
+    todo.isTodoEditHover = false
     dispatch('todoList/setLocalStorage')
   }
 
   function modalShow (todo) {
-    todo.todoDelHover = false
+    todo.isTodoDelHover = false
     dispatch('delModal/modalShow')
     commit('delModal/GET_DEL_TODO_INFO', todo)
   }
