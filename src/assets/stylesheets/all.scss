@@ -27,6 +27,10 @@ body {
   .area {
     background-color: #d5d5d5;
   }
+  .code-text {
+    color: #ff0000;
+    background-color: rgb(255 78 167 / 30%);
+  }
 }
 // 黑暗樣式
 [data-theme="dark"] {
@@ -52,6 +56,10 @@ body {
   }
   .area {
     background-color: #3c3c3c;
+  }
+  .code-text {
+    color: #ffffff;
+    background-color: #ff007f85;
   }
 }
 // 改變滑鼠圖標

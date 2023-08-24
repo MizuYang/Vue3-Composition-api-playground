@@ -157,6 +157,14 @@ const routes = [
       pageName: 'todoList'
     },
     component: () => import('@/views/demo/TodoList.vue')
+  },
+  {
+    path: '/carousel',
+    name: 'carousel',
+    meta: {
+      pageName: 'carousel'
+    },
+    component: () => import('@/views/demo/Carousel.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',

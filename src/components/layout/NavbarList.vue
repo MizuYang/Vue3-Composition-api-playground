@@ -35,7 +35,8 @@ const data = reactive({
     'readonly',
     'toRaw',
     'composables',
-    'todoList'
+    'todoList',
+    'carousel'
   ],
   currentPageName: ''
 })
