@@ -1,11 +1,11 @@
 // import axios from 'axios'
 
 import { throttle } from 'lodash'
+import debounce from 'lodash.debounce'
 
-const carousel = {
+const carouselStoreA = {
   namespaced: true,
   state: {
-    isOverflowHiddenShow: true,
     carouselImages: [
       {
         imgName: '柯基',
@@ -47,17 +47,19 @@ const carousel = {
       // 單一輪播
       // position: 0,
       // timer: null,
-      showIndex: 0,
-      delay: 500,
+      isOverflowHiddenShow: JSON.parse(localStorage.getItem('isOverflowHiddenShow_A')),
+      transition: 500,
       direction: 'left',
       translateX: 0,
       hasTransition: true,
-      autoPlay: true,
-      isPlay: true
+      isAutoPlay: 'true',
+      isPlay: false,
+      timer: null,
+      speed: 500
     }
   },
   actions: {
-    imgMove: throttle(function ({ state, commit }, direction) {
+    imgMove: throttle(function ({ state, commit }, [direction = 'left', isAutoPlay]) {
       const { carouselA } = state
 
       if (direction === 'left') {
@@ -70,21 +72,28 @@ const carousel = {
         checkImgFooterReset()
       }
 
+      console.log(isAutoPlay)
+      if (isAutoPlay !== 'isAutoPlay') {
+        console.log('停止播放')
+        commit('CLEAR_TIMER')
+      }
+
       function checkImgHeaderReset () {
         // 若播放到第一張圖
-        if (carouselA.translateX - 200 === 0) {
+        // if (carouselA.translateX - 200 === 0) {
+        if (carouselA.translateX - 200 === -200) {
           // 1. 暫時移除 transition 漸變效果
           state.carouselA.hasTransition = false
 
           // 2. 將輪播圖顯示設為最後一張圖 (最後一張圖也就是複製的第一張圖)
-          commit('GOTO_TARGET_IMAGE', -1200)
+          commit('GOTO_TARGET_IMAGE', -1400)
 
           setTimeout(() => {
             // 3. 開啟漸變效果
             state.carouselA.hasTransition = true
             // 4.將輪播圖顯示設為倒數第二張 (原本的最後一張圖)
-            commit('GOTO_TARGET_IMAGE', -1000)
-          }, 50)
+            commit('GOTO_TARGET_IMAGE', -1200)
+          }, 40)
         } else {
           commit('UPDATE_TRANSLATE_X', 200)
         }
@@ -103,7 +112,7 @@ const carousel = {
             state.carouselA.hasTransition = true
             // 4.將輪播圖顯示設為第二張 (原本的第一張圖)
             commit('GOTO_TARGET_IMAGE', 0)
-          }, 50)
+          }, 40)
         } else {
           commit('UPDATE_TRANSLATE_X', -200)
         }
@@ -112,26 +121,86 @@ const carousel = {
     // 複製第一張、最後一張圖放到第一個和最後一個
     // 輪播結構：[最後一張圖] [第一張圖] [第二張圖] [第三張圖] [最後一張圖] [第一張圖]
     copyImgHeadAndFoot ({ state, commit }) {
-      const newData = [state.carouselImages.at(-1), ...state.carouselImages, state.carouselImages[0]]
+      const data = JSON.parse(JSON.stringify(state.carouselImages))
+
+      // 更改 頭尾圖片 translateX
+      const firestData = JSON.parse(JSON.stringify(data[0]))
+      firestData.translateX = -1400
+      const lastData = JSON.parse(JSON.stringify(data.at(-1)))
+      lastData.translateX = 200
+      const newData = [lastData, ...data, firestData]
+
       commit('COPY_IMG_ONE', newData)
-    }
+    },
+    overflowToggle ({ state, commit }) {
+      const { isOverflowHiddenShow } = state.carouselA
+
+      localStorage.setItem('isOverflowHiddenShow_A', JSON.stringify(!isOverflowHiddenShow))
+
+      commit('OVERFLOW_HIDDEN_TOGGLE', !isOverflowHiddenShow)
+    },
+    autoPlayToggle ({ state, commit }) {
+      const { isAutoPlay } = state
+
+      localStorage.setItem('isAutoPlay_A', JSON.stringify(!isAutoPlay))
+
+      commit('AUTO_PLAY_TOGGLE', !isAutoPlay)
+    },
+    autoPlay ({ state, commit, dispatch }) {
+      const { isAutoPlay, direction, speed, isPlay } = state.carouselA
+      if (!isPlay) {
+        commit('CLEAR_TIMER')
+        return
+      }
+
+      if (isAutoPlay === 'true') {
+        console.log('自動播放')
+        const timer = setInterval(() => {
+          dispatch('imgMove', [direction, 'isAutoPlay'])
+        }, speed || 0)
+        commit('GET_TIMER', timer)
+      }
+    },
+    changeSpeed: debounce(function ({ state, dispatch, commit }) {
+      const { timer, direction, speed } = state.carouselA
+      if (timer) {
+        commit('CLEAR_TIMER')
+
+        const newTimer = setInterval(() => {
+          dispatch('imgMove', [direction, 'isAutoPlay'])
+        }, speed || 0)
+        commit('GET_TIMER', newTimer)
+      }
+    }, 200)
   },
   mutations: {
     COPY_IMG_ONE (state, data) {
       state.carouselImages = data
     },
-    OVERFLOW_HIDDEN_TOGGLE (state) {
-      state.isOverflowHiddenShow = !state.isOverflowHiddenShow
+    OVERFLOW_HIDDEN_TOGGLE (state, value) {
+      state.carouselA.isOverflowHiddenShow = value
+    },
+    AUTO_PLAY_TOGGLE (state, value) {
+      state.carouselA.isOverflowHiddenShow = value
     },
     UPDATE_TRANSLATE_X (state, translateX) {
       state.carouselA.translateX += translateX
     },
     GOTO_TARGET_IMAGE (state, targetTranslateX) {
       state.carouselA.translateX = targetTranslateX
+    },
+    GET_TIMER (state, timer) {
+      state.carouselA.timer = timer
+    },
+    CLEAR_TIMER (state) {
+      if (state.carouselA.timer) clearInterval(state.carouselA.timer)
+    },
+    STOP_PLAY (state) {
+      state.carouselA.isPlay = false
     }
   },
   getters: {
   }
 }
 
-export default carousel
+export default carouselStoreA
