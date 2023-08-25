@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-3 px-0 p-3">
+  <div class="container mt-3 mb-5 px-0 p-3">
     <header class="p-3 pb-0">
       <h2 class="text-20 mb-2">輪播</h2>
     </header>
@@ -12,32 +12,15 @@
 
     <!-- 三個卡片式輪播 -->
     <section class="p-3 pb-0">
-      <h3>三個卡片式輪播</h3>
-      <!-- 輪播 - 1 -->
-      <!-- <template v-if="data[0]"></template> -->
-      <!-- 輪播 - 2 -->
-      <!-- <template v-if="data[1]"></template> -->
-      <!-- 輪播 - 3 -->
-      <!-- <template v-if="data[2]"></template> -->
+      <h3>三張圖輪播</h3>
+      <Demo2 />
     </section>
   </div>
 </template>
 
 <script setup>
 import Demo1 from '@/components/demo/carousel/Demo1.vue'
-// import CarouselImgae from '@/components/demo/carousel/items/CarouselImgae.vue'
-
-// import { ref, toRefs, onMounted } from 'vue' // eslint-disable-line
-// import { useStore } from 'vuex'
-
-// import { useCarouselA } from '@/composables/carousel/useCarouselA.js'
-
-// const store = useStore()
-// const { dispatch, commit } = store // eslint-disable-line
-// const { carouselA, carouselImages, isOverflowHiddenShow } = toRefs(store.state.carouselA)
-// const { showIndex, delay, direction, translateX, hasTransition  } = toRefs(carouselA.value) // eslint-disable-line
-
-// const { carouselElementA, label } = useCarouselA()
+import Demo2 from '@/components/demo/carousel/Demo2.vue'
 
 </script>
 

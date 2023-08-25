@@ -6,6 +6,7 @@ import theme from '@/vuex/store/theme.js'
 import todoList from '@/vuex/store/demo/todolist/todoList.js'
 import delModal from '@/vuex/store/demo/todolist/modal/delModal.js'
 import carouselStoreA from '@/vuex/store/demo/carousel/carouselA.js'
+import carouselStoreB from '@/vuex/store/demo/carousel/carouselB.js'
 
 export default createStore({
   strict: false, // 嚴謹模式
@@ -21,6 +22,7 @@ export default createStore({
     theme,
     todoList,
     delModal,
-    carouselStoreA
+    carouselStoreA,
+    carouselStoreB
   }
 })

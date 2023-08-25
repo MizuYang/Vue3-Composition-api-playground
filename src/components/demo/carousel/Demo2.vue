@@ -11,45 +11,45 @@
   <!-- 輪播設定 -->
   <div class="d-flex">
     <!-- translateX -->
-    <label for="demo1" ref="label" class="d-block mb-2">
+    <label for="demo2" ref="label" class="d-block mb-2">
       translateX：
-      <input type="text" class="form-control w-50 my-2" id="demo1" v-model.number="translateX"
-             @keydown.up="dispatch('carouselStoreA/imgMove', ['top'])"
-             @keydown.down="dispatch('carouselStoreA/imgMove', ['bottom'])"
-             @keydown.left="dispatch('carouselStoreA/imgMove', ['left'])"
-             @keydown.right="dispatch('carouselStoreA/imgMove', ['right'])">
+      <input type="text" class="form-control w-50 my-2" id="demo2" v-model.number="translateX"
+             @keydown.up="dispatch('carouselStoreB/imgMove', ['top'])"
+             @keydown.down="dispatch('carouselStoreB/imgMove', ['bottom'])"
+             @keydown.left="dispatch('carouselStoreB/imgMove', ['left'])"
+             @keydown.right="dispatch('carouselStoreB/imgMove', ['right'])">
     </label>
     <!-- transition -->
-    <label for="transition" ref="label" class="d-block mb-2">
+    <label for="transition2" ref="label" class="d-block mb-2">
       transition：
-      <input type="text" class="form-control w-50 my-2" id="transition" v-model.number="transition"
-             @keydown.up="dispatch('carouselStoreA/imgMove', ['top'])"
-             @keydown.down="dispatch('carouselStoreA/imgMove', ['bottom'])"
-             @keydown.left="dispatch('carouselStoreA/imgMove', ['left'])"
-             @keydown.right="dispatch('carouselStoreA/imgMove', ['right'])">
+      <input type="text" class="form-control w-50 my-2" id="transition2" v-model.number="transition"
+             @keydown.up="dispatch('carouselStoreB/imgMove', ['top'])"
+             @keydown.down="dispatch('carouselStoreB/imgMove', ['bottom'])"
+             @keydown.left="dispatch('carouselStoreB/imgMove', ['left'])"
+             @keydown.right="dispatch('carouselStoreB/imgMove', ['right'])">
     </label>
     <!-- autoPlay-speed -->
-    <label for="speed" ref="label" class="d-block mb-2">
+    <label for="speed2" ref="label" class="d-block mb-2">
       autoPlay-speed：
-      <input type="text" class="form-control w-50 my-2" id="speed"
+      <input type="text" class="form-control w-50 my-2" id="speed2"
              v-model.number="speed"
-             @input="dispatch('carouselStoreA/changeSpeed')"
-             @keydown.up="dispatch('carouselStoreA/imgMove', ['top'])"
-             @keydown.down="dispatch('carouselStoreA/imgMove', ['bottom'])"
-             @keydown.left="dispatch('carouselStoreA/imgMove', ['left'])"
-             @keydown.right="dispatch('carouselStoreA/imgMove', ['right'])">
+             @input="dispatch('carouselStoreB/changeSpeed')"
+             @keydown.up="dispatch('carouselStoreB/imgMove', ['top'])"
+             @keydown.down="dispatch('carouselStoreB/imgMove', ['bottom'])"
+             @keydown.left="dispatch('carouselStoreB/imgMove', ['left'])"
+             @keydown.right="dispatch('carouselStoreB/imgMove', ['right'])">
     </label>
   </div>
   <!-- 功能區塊 -->
   <div class="d-flex align-items-center mb-2">
     <!-- overflow -->
     <button type="button" class="btn btn-sm btn-secondary text-14 me-2 p-1"
-            @click="dispatch('carouselStoreA/overflowToggle')">
+            @click="dispatch('carouselStoreB/overflowToggle')">
         {{ isOverflowHiddenShow?'隱藏溢出圖片':'顯示溢出圖片' }}
     </button>
     <!-- autoPlay -->
     <button type="button" class="btn btn-sm btn-secondary text-14 me-2 p-1"
-            @click="dispatch('carouselStoreA/autoPlayToggle')">
+            @click="dispatch('carouselStoreB/autoPlayToggle')">
         {{ isAutoPlay==='true'?'關閉自動播放':'開啟自動播放' }}
     </button>
     <!-- isPlay -->
@@ -62,30 +62,30 @@
       </template>
       <template v-else-if="isPlay">
         <button type="button" class="btn btn-sm btn-secondary text-14 me-2 p-1"
-                @click="commit('carouselStoreA/STOP_PLAY')">
+                @click="commit('carouselStoreB/STOP_PLAY')">
           暫停
         </button>
       </template>
     </div>
     <!-- direction -->
     <div class="d-flex align-items-center area text-14 px-1">
-      <label for="flexSwitchCheckDefault" class="me-2 p-1">
+      <label for="flexSwitchCheckDefault2" class="me-2 p-1">
           播放圖片方向：
       左
       </label>
       <div class="form-check form-switch my-auto mb-0">
-        <input class="form-check-input rounded-pill" type="checkbox" role="switch" id="flexSwitchCheckDefault" @change="dispatch('carouselStoreA/changeDirection')">
-        <label class="form-check-label ms-1" for="flexSwitchCheckDefault">右</label>
+        <input class="form-check-input rounded-pill" type="checkbox" role="switch" id="flexSwitchCheckDefault2" @change="dispatch('carouselStoreB/changeDirection')">
+        <label class="form-check-label ms-1" for="flexSwitchCheckDefault2">右</label>
       </div>
     </div>
   </div>
   <!-- 輪播大容器 -->
-  <label for="demo1" class="position-relative d-block"
+  <label for="demo2" class="position-relative d-block"
         :class="{'overflow-hidden':!isOverflowHiddenShow}"
-        style="width:200px;height:200px;">
+        style="width:600px;height:200px;">
     <div class="position-relative" style="transform:translateX(-200px);">
       <ul class="position-absolute d-flex align-items-center"
-          ref="carouselElementA"
+          ref="carouselElementB"
           :style="`transform: translateX(${translateX}px);
                    transition: transform ${hasTransition&&transition}ms;`">
         <li class="position-relative" v-for="item in carouselImages" :key="item.id">
@@ -106,10 +106,10 @@
                 class="btn rounded-pill btn-hover p-1"
                 :class="translateX===item.translateX?'btn-danger':'btn-light'"
                 @click="gotoTargetImage(-(idx)*200)"
-                @keydown.up="dispatch('carouselStoreA/imgMove', ['top'])"
-                @keydown.down="dispatch('carouselStoreA/imgMove', ['bottom'])"
-                @keydown.left="dispatch('carouselStoreA/imgMove', ['left'])"
-                @keydown.right="dispatch('carouselStoreA/imgMove', ['right'])">
+                @keydown.up="dispatch('carouselStoreB/imgMove', ['top'])"
+                @keydown.down="dispatch('carouselStoreB/imgMove', ['bottom'])"
+                @keydown.left="dispatch('carouselStoreB/imgMove', ['left'])"
+                @keydown.right="dispatch('carouselStoreB/imgMove', ['right'])">
         </button>
       </li>
     </ul>
@@ -124,11 +124,12 @@ import CarouselImgae from '@/components/demo/carousel/items/CarouselImgae.vue'
 import { toRefs } from 'vue'
 import { useStore } from 'vuex'
 
-import { useCarouselA } from '@/composables/carousel/useCarouselA.js'
+import { useCarouselB } from '@/composables/carousel/useCarouselB.js'
 
 const store = useStore()
 const { dispatch, commit } = store
-const { carouselA, carouselImages } = toRefs(store.state.carouselStoreA)
+const { carouselB, carouselImages } = toRefs(store.state.carouselStoreB)
+console.log(carouselImages.value)
 const {
   transition,
   translateX,
@@ -137,9 +138,9 @@ const {
   isOverflowHiddenShow,
   isAutoPlay,
   isPlay
-} = toRefs(carouselA.value)
+} = toRefs(carouselB.value)
 
-const { carouselElementA, label, gotoTargetImage, play } = useCarouselA()
+const { carouselElementB, label, gotoTargetImage, play } = useCarouselB()
 </script>
 
 <style lang='scss'>
