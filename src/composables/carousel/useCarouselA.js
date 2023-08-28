@@ -13,6 +13,7 @@ export function useCarouselA () {
   })
 
   onMounted(() => {
+    getAutoPlay()
     label.value.click()
     if (isAutoPlay.value === 'true') dispatch('carouselStoreA/autoPlay')
     dispatch('carouselStoreA/copyImgHeadAndFoot')
@@ -29,6 +30,14 @@ export function useCarouselA () {
   function play () {
     commit('carouselStoreA/START_PLAY')
     dispatch('carouselStoreA/startCarousel', [direction.value, speed.value])
+  }
+  function getAutoPlay () {
+    if (isAutoPlay.value === null) {
+      commit('carouselStoreA/UPDATE_AUTO_PLAY', 'true')
+      commit('carouselStoreA/START_PLAY')
+    } else if (isAutoPlay.value === 'false') {
+      commit('carouselStoreA/STOP_PLAY')
+    }
   }
 
   return {
