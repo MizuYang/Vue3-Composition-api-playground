@@ -82,6 +82,7 @@
   <!-- 輪播大容器 -->
   <label for="demo2" class="position-relative d-block"
         :class="{'overflow-hidden':!isOverflowHiddenShow}"
+        @mousewheel.prevent="scroll($event,'carouselStoreB')"
         style="width:600px;height:200px;">
     <div class="position-relative" style="transform:translateX(-200px);">
       <ul class="position-absolute d-flex align-items-center"
@@ -124,12 +125,12 @@ import CarouselImgae from '@/components/demo/carousel/items/CarouselImgae.vue'
 import { toRefs } from 'vue'
 import { useStore } from 'vuex'
 
-import { useCarouselB } from '@/composables/carousel/useCarouselB.js'
+import { useCarouselB } from '@/composables/carousel/demoB/useCarouselB.js'
+import { useScroll } from '@/composables/carousel/methods/useScroll.js'
 
 const store = useStore()
 const { dispatch, commit } = store
 const { carouselB, carouselImages } = toRefs(store.state.carouselStoreB)
-console.log(carouselImages.value)
 const {
   transition,
   translateX,
@@ -141,6 +142,7 @@ const {
 } = toRefs(carouselB.value)
 
 const { carouselElementB, label, gotoTargetImage, play } = useCarouselB()
+const { scroll } = useScroll()
 </script>
 
 <style lang='scss'>
