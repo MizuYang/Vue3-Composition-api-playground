@@ -82,6 +82,7 @@
   <!-- 輪播大容器 -->
   <label for="demo1" class="position-relative d-block"
         :class="{'overflow-hidden':!isOverflowHiddenShow}"
+        @mousedown="getDownPosition($event,'carouselStoreA')"
         @mousewheel.prevent="scroll($event,'carouselStoreA')"
         style="width:200px;height:200px;">
     <div class="position-relative" style="transform:translateX(-200px);">
@@ -127,6 +128,7 @@ import { useStore } from 'vuex'
 
 import { useCarouselA } from '@/composables/carousel/demoA/useCarouselA.js'
 import { useScroll } from '@/composables/carousel/methods/useScroll.js'
+import { useDrag } from '@/composables/carousel/methods/useDrag.js'
 
 const store = useStore()
 const { dispatch, commit } = store
@@ -143,6 +145,7 @@ const {
 
 const { carouselElementA, label, gotoTargetImage, play } = useCarouselA()
 const { scroll } = useScroll()
+const { getDownPosition } = useDrag()
 </script>
 
 <style lang='scss'>
