@@ -36,7 +36,8 @@ const data = reactive({
     'toRaw',
     'composables',
     'todoList',
-    'carousel'
+    'carousel',
+    'swiper'
   ],
   currentPageName: ''
 })

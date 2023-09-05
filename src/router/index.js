@@ -165,6 +165,14 @@ const routes = [
       pageName: 'carousel'
     },
     component: () => import('@/views/demo/Carousel.vue')
+  },
+  {
+    path: '/swiper',
+    name: 'swiper',
+    meta: {
+      pageName: 'swiper'
+    },
+    component: () => import('@/views/demo/Swiper.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',
