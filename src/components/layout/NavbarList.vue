@@ -38,7 +38,8 @@ const data = reactive({
     'todoList',
     'carousel',
     'swiper',
-    'scrollingParallax'
+    'scrollingParallax',
+    'aos'
   ],
   currentPageName: ''
 })

@@ -181,6 +181,14 @@ const routes = [
       pageName: 'scrollingParallax'
     },
     component: () => import('@/views/demo/ScrollingParallax.vue')
+  },
+  {
+    path: '/aos',
+    name: 'aos',
+    meta: {
+      pageName: 'aos'
+    },
+    component: () => import('@/views/demo/AOS.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',
