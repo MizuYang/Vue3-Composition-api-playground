@@ -55,9 +55,6 @@ onMounted(() => {
       },
       990: {
         slidesPerView: 5
-      },
-      1024: {
-        slidesPerView: 7
       }
     },
 
