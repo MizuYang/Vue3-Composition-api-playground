@@ -57,7 +57,7 @@ onMounted(() => {
         slidesPerView: 5
       },
       1024: {
-        slidesPerView: 6
+        slidesPerView: 7
       }
     },
 
