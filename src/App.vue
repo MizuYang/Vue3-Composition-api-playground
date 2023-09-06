@@ -1,5 +1,5 @@
 <template>
-  <nav class="position-fixed top-0 w-100"
+  <nav class="position-fixed top-0 z9999 w-100"
        style="height: 45px;line-height:1.5;">
        <NavbarList />
   </nav>
