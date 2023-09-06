@@ -173,6 +173,14 @@ const routes = [
       pageName: 'swiper'
     },
     component: () => import('@/views/demo/Swiper.vue')
+  },
+  {
+    path: '/scrollingParallax',
+    name: 'scrollingParallax',
+    meta: {
+      pageName: 'scrollingParallax'
+    },
+    component: () => import('@/views/demo/ScrollingParallax.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',
