@@ -3,7 +3,8 @@
 const chart = {
   namespaced: true,
   state: {
-    activeChartContent: {}
+    activeChartContent: {},
+    currentChart: 'doughnut'
   },
   actions: {
     getChartContent ({ commit }, data) {
@@ -13,6 +14,9 @@ const chart = {
   mutations: {
     GET_CHART_CONTENT (state, data) {
       state.activeChartContent = data
+    },
+    GET_CURRENT_CHART (state, data) {
+      state.currentChart = data
     }
   },
   getters: {

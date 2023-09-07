@@ -4,7 +4,6 @@ import { useStore } from 'vuex'
 export function useBarConfig () {
   const store = useStore()
   const { dispatch } = store
-  const { theme } = toRefs(store.state.theme) // eslint-disable-line
 
   const states = reactive({
     data: {
@@ -35,7 +34,7 @@ export function useBarConfig () {
           //   'rgba(255, 159, 64, 0.2)'
           // ],
           hoverBackgroundColor: '#5F8AC1',
-          data: getRandomData(),
+          data: getRandomData(), // [82, 94, 65, 53, 5, 10, 76, 77, 34, 20, 93, 93, 8]
           // 設定 圖表數據文字樣式
           datalabels: {
             labels: {

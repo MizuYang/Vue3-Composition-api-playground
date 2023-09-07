@@ -29,7 +29,7 @@ ChartJS.register(ChartDataLabels)
 // })
 // ChartJS.defaults.font.size = 20
 ChartJS.defaults.color = '#9B9494' // 修改外圍文字顏色
-console.log(ChartJS.defaults)
+// console.log(ChartJS.defaults)
 </script>
 
 <style lang='scss' scope>
