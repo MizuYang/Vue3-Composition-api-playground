@@ -8,15 +8,15 @@
     <section class="area m-3 p-3">
       <button type="button"
               v-for="btn in chartBtn" :key="`btn-${btn.name}`"
-              class="btn btn-success p-2"
+              class="btn btn-success me-1 p-2"
               @click="changeChart(btn.component)">
               {{ btn.name }}
       </button>
     </section>
 
     <!-- 圖表顯示區 -->
-    <section class="area m-3 px-3">
-      <Component :is="curChartName" />
+    <section class="area m-3 p-3">
+      <Component :is="currntChartComponent" />
     </section>
 
     <!-- 顯示圖表資訊 -->
@@ -41,7 +41,7 @@ import { toRefs } from 'vue'
 import { useStore } from 'vuex'
 import { useChart } from '@/composables/chart/useChart.js'
 
-const { curChartName, chartBtn, changeChart } = useChart()
+const { currntChartComponent, chartBtn, changeChart } = useChart()
 
 const store = useStore()
 const { activeChartContent } = toRefs(store.state.chart)
