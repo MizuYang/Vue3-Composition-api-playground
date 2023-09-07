@@ -33,7 +33,7 @@ export function useBarConfig () {
           //   'rgba(255, 159, 64, 0.2)'
           // ],
           hoverBackgroundColor: '#5F8AC1',
-          data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
+          data: getRandomData(),
           // 設定 圖表數據文字樣式
           datalabels: {
             labels: {
@@ -77,7 +77,7 @@ export function useBarConfig () {
           label: '第二筆資料',
           backgroundColor: '#DA9B9B',
           hoverBackgroundColor: '#CF8B8B',
-          data: [40, 20, 12, 39, 10, 40, 39, 80, 40, 20, 12, 11],
+          data: getRandomData(),
           // 設定 圖表數據文字樣式
           datalabels: {
             labels: {
@@ -140,6 +140,15 @@ export function useBarConfig () {
       }
     }
   })
+
+  function getRandomData () {
+    const data = []
+    for (let i = 0; i <= 12; i++) {
+      data.push(Math.round(Math.random() * 100) + 1)
+    }
+
+    return data
+  }
 
   return {
     ...toRefs(states)
