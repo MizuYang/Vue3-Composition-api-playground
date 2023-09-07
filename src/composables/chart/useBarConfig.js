@@ -55,6 +55,7 @@ export function useBarConfig () {
             // 事件註冊
             listeners: {
               click: function (context, e) {
+                if (!context.active) return
                 console.log('context', context)
                 console.log('e', e)
 
@@ -92,6 +93,7 @@ export function useBarConfig () {
             },
             listeners: {
               click: function (context, e) {
+                if (!context.active) return
                 console.log('context', context)
                 console.log('e', e)
 
