@@ -189,6 +189,14 @@ const routes = [
       pageName: 'aos'
     },
     component: () => import('@/views/demo/AOS.vue')
+  },
+  {
+    path: '/chart',
+    name: 'chart',
+    meta: {
+      pageName: 'chart'
+    },
+    component: () => import('@/views/demo/Chart.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',
