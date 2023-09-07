@@ -15,7 +15,7 @@ import {
 } from 'chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 
-import { useBarConfig } from '@/composables/chart/useBarConfig.js'
+import { useBarConfig } from '@/composables/chart/items/useBarConfig.js'
 
 const { data, options } = useBarConfig()
 
