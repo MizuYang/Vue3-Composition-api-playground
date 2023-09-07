@@ -4,6 +4,8 @@ import { useStore } from 'vuex'
 export function useBarConfig () {
   const store = useStore()
   const { dispatch } = store
+  const { theme } = toRefs(store.state.theme) // eslint-disable-line
+
   const states = reactive({
     data: {
       labels: [
@@ -136,7 +138,7 @@ export function useBarConfig () {
             font: {
               size: 20
             },
-            color: '#C8C8C8'
+            color: 'gray'
           }
         }
       }
