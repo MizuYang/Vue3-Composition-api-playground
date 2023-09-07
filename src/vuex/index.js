@@ -7,6 +7,7 @@ import todoList from '@/vuex/store/demo/todolist/todoList.js'
 import delModal from '@/vuex/store/demo/todolist/modal/delModal.js'
 import carouselStoreA from '@/vuex/store/demo/carousel/carouselStoreA.js'
 import carouselStoreB from '@/vuex/store/demo/carousel/carouselStoreB.js'
+import chart from '@/vuex/store/demo/chart/chart.js'
 
 export default createStore({
   strict: false, // 嚴謹模式
@@ -23,6 +24,7 @@ export default createStore({
     todoList,
     delModal,
     carouselStoreA,
-    carouselStoreB
+    carouselStoreB,
+    chart
   }
 })

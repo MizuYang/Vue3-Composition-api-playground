@@ -1,6 +1,9 @@
 import { reactive, toRefs } from 'vue'
+import { useStore } from 'vuex'
 
 export function useBarConfig () {
+  const store = useStore()
+  const { dispatch } = store
   const states = reactive({
     data: {
       labels: [
@@ -54,6 +57,18 @@ export function useBarConfig () {
               click: function (context, e) {
                 console.log('context', context)
                 console.log('e', e)
+
+                const index = context.dataIndex
+                const { label } = context.dataset
+                const month = states.data.labels[index]
+                const value = context.dataset.data[index]
+
+                dispatch('chart/getChartContent', {
+                  index,
+                  label,
+                  month,
+                  value
+                })
               }
             }
           }
@@ -73,6 +88,24 @@ export function useBarConfig () {
               value: {
                 color: 'pink',
                 font: { size: 21 }
+              }
+            },
+            listeners: {
+              click: function (context, e) {
+                console.log('context', context)
+                console.log('e', e)
+
+                const index = context.dataIndex
+                const { label } = context.dataset
+                const month = states.data.labels[index]
+                const value = context.dataset.data[index]
+
+                dispatch('chart/getChartContent', {
+                  index,
+                  label,
+                  month,
+                  value
+                })
               }
             }
           }

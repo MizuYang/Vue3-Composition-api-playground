@@ -1,5 +1,5 @@
 <template>
-  <Bar :data="data" :options="options" style="height:300px;" />
+  <Bar :data="data" :options="options" style="min-height:300px;" />
 </template>
 
 <script setup>

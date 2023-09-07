@@ -20,31 +20,31 @@
     </section>
 
     <!-- 顯示圖表資訊 -->
-    <section class="area m-3 p-3">
-      <p class="text-gray text-20 text-center mb-2">{ 點擊圖表顯示其內容 ... }</p>
-      <!-- <pre class="bg-dark text-light p-2">
-const discount = ref(Math.random().toFixed(2))
-const price = ref(100)
-const discountPrice = computed({
-  get () {
-    return price.value * discount.value
-  },
-  set (newDiscount) {
-    discount.value = newDiscount
-  }
-})
-function getRandomDiscount () {
-  discountPrice.value = Math.random().toFixed(2)
-}</pre> -->
+    <section class="area text-center m-3 p-3">
+      <template v-if="activeChartContent.label">
+        <h3 class="text-20"> - {{ activeChartContent.label }} -</h3>
+        <p class="text-18">
+          您點擊了 {{ activeChartContent.index+1 }} 月
+          ({{ activeChartContent.month }})  {{ activeChartContent.value }}
+        </p>
+      </template>
+      <tempalte v-else>
+        <p class="text-gray text-20 mb-2">{ 點擊圖表顯示其內容 ... }</p>
+      </tempalte>
     </section>
 
   </div>
 </template>
 
 <script setup>
+import { toRefs } from 'vue'
+import { useStore } from 'vuex'
 import { useChart } from '@/composables/chart/useChart.js'
 
 const { curChartName, chartBtn, changeChart } = useChart()
+
+const store = useStore()
+const { activeChartContent } = toRefs(store.state.chart)
 
 </script>
 
