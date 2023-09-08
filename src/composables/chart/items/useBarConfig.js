@@ -64,13 +64,12 @@ export function useBarConfig () {
                 const { label } = context.dataset
                 const month = states.data.labels[index]
                 const value = context.dataset.data[index]
+                const content = `
+                您點擊了 ${label} 的 ${index + 1}  月
+                ( ${month} )   ${value} 
+                `
 
-                dispatch('chart/getChartContent', {
-                  index,
-                  label,
-                  month,
-                  value
-                })
+                dispatch('chart/getChartContent', content)
               }
             }
           }
@@ -102,13 +101,12 @@ export function useBarConfig () {
                 const { label } = context.dataset
                 const month = states.data.labels[index]
                 const value = context.dataset.data[index]
+                const content = `
+                您點擊了 ${label} 的 ${index + 1}  月
+                ( ${month} )   ${value} 
+                `
 
-                dispatch('chart/getChartContent', {
-                  index,
-                  label,
-                  month,
-                  value
-                })
+                dispatch('chart/getChartContent', content)
               }
             }
           }

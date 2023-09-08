@@ -22,21 +22,8 @@
     <!-- 顯示圖表資訊 -->
     <section class="area text-center m-3 p-3">
       <!-- 有圖表資料 (判斷數字的值 .value) -->
-      <template v-if="activeChartContent.value">
-        <!-- bar -->
-        <template v-if="currentChart==='bar'">
-          <h3 class="text-20"> - {{ activeChartContent.label }} -</h3>
-          <p class="text-18">
-            您點擊了 {{ activeChartContent.index+1 }} 月
-            ({{ activeChartContent.month }})  {{ activeChartContent.value }}
-          </p>
-        </template>
-        <!-- doughnut -->
-        <template v-if="currentChart==='doughnut'">
-          <p class="text-18">
-            您點擊了 {{ activeChartContent.name }}: {{ activeChartContent.value }}
-          </p>
-        </template>
+      <template v-if="activeChartContent">
+        <p class="text-20 text-gray">{{ activeChartContent }}</p>
       </template>
       <!-- 沒圖表資料 -->
       <tempalte v-else>

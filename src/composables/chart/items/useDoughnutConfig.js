@@ -30,16 +30,12 @@ export function useDoughnutConfig () {
                 console.log('e', e)
 
                 const index = context.dataIndex
-                const { label } = context.dataset
                 const name = states.data.labels[index]
                 const value = context.dataset.data[index]
 
-                dispatch('chart/getChartContent', {
-                  index,
-                  label,
-                  name,
-                  value
-                })
+                const content = `您點擊了 ${name}: ${value}`
+
+                dispatch('chart/getChartContent', content)
               }
             }
           }

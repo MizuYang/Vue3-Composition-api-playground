@@ -3,7 +3,7 @@
 const chart = {
   namespaced: true,
   state: {
-    activeChartContent: {},
+    activeChartContent: '',
     currentChart: 'doughnut'
   },
   actions: {
@@ -17,6 +17,7 @@ const chart = {
     },
     GET_CURRENT_CHART (state, data) {
       state.currentChart = data
+      state.activeChartContent = '' // 初始化
     }
   },
   getters: {
