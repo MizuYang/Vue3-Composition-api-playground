@@ -3,12 +3,13 @@ import { useStore } from 'vuex'
 import Bar from '@/components/demo/chart/Bar.vue'
 import Doughnut from '@/components/demo/chart/Doughnut.vue'
 import Line from '@/components/demo/chart/Line.vue'
+import Pie from '@/components/demo/chart/Pie.vue'
 
 export function useChart () {
   const store = useStore()
   const { commit } = store
   const states = reactive({
-    currntChartComponent: Line,
+    currntChartComponent: Pie,
     chartBtn: [
       {
         title: '長條圖(bar)',
@@ -24,6 +25,11 @@ export function useChart () {
         title: '折線圖(line)',
         component: Line,
         name: 'line'
+      },
+      {
+        title: '圓餅圖(pie)',
+        component: Pie,
+        name: 'pie'
       }
     ]
   })

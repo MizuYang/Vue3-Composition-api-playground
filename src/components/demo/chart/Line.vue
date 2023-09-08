@@ -14,7 +14,7 @@ import {
   Legend
 } from 'chart.js'
 import { Line } from 'vue-chartjs'
-import { useLine } from '@/composables/chart/items/useLine.js'
+import { useLine } from '@/composables/chart/items/useLineConfig.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels'
 
 ChartJS.register(
