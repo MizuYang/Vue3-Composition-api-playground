@@ -4,7 +4,7 @@ const chart = {
   namespaced: true,
   state: {
     activeChartContent: '',
-    currentChart: 'doughnut'
+    currentChart: 'bar'
   },
   actions: {
     getChartContent ({ commit }, data) {

@@ -9,9 +9,9 @@
       <button type="button"
               v-for="btn in chartBtn" :key="`btn-${btn.name}`"
               class="btn me-1 p-2"
-              :class="currentChart===btn.currentChart?'btn-primary':'btn-success'"
+              :class="currentChart===btn.name?'btn-primary':'btn-success'"
               @click="changeChart(btn)">
-              {{ btn.name }}
+              {{ btn.title }}
       </button>
     </section>
 

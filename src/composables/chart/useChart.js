@@ -2,22 +2,28 @@ import { reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
 import Bar from '@/components/demo/chart/Bar.vue'
 import Doughnut from '@/components/demo/chart/Doughnut.vue'
+import Line from '@/components/demo/chart/Line.vue'
 
 export function useChart () {
   const store = useStore()
   const { commit } = store
   const states = reactive({
-    currntChartComponent: Doughnut,
+    currntChartComponent: Line,
     chartBtn: [
       {
-        name: '長條圖(bar)',
+        title: '長條圖(bar)',
         component: Bar,
-        currentChart: 'bar'
+        name: 'bar'
       },
       {
-        name: '甜甜圖(doughnut)',
+        title: '甜甜圖(doughnut)',
         component: Doughnut,
-        currentChart: 'doughnut'
+        name: 'doughnut'
+      },
+      {
+        title: '折線圖(line)',
+        component: Line,
+        name: 'line'
       }
     ]
   })
@@ -26,7 +32,7 @@ export function useChart () {
 
   function changeChart (data) {
     currntChartComponent.value = data.component
-    commit('chart/GET_CURRENT_CHART', data.currentChart)
+    commit('chart/GET_CURRENT_CHART', data.name)
   }
 
   return {
