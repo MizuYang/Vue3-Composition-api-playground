@@ -9,7 +9,7 @@ export function useChart () {
   const store = useStore()
   const { commit } = store
   const states = reactive({
-    currntChartComponent: Pie,
+    currntChartComponent: Bar,
     chartBtn: [
       {
         title: '長條圖(bar)',

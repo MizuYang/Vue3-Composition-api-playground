@@ -1,5 +1,5 @@
 <template>
- <Pie :data="data" :options="options" />
+ <Pie :data="data" :options="options" ref="pie" @click="onClick" />
 </template>
 
 <script setup>
@@ -12,7 +12,7 @@ ChartJS.register(ArcElement, Tooltip, Legend)
 // 顯示項目的數據在圖表上
 ChartJS.register(ChartDataLabels)
 
-const { data, options } = usePieConfig()
+const { data, options, pie, onClick } = usePieConfig()
 </script>
 
 <style lang='scss' scope>

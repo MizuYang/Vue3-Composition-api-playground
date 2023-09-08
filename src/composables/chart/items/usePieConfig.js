@@ -1,5 +1,10 @@
-import { reactive, toRefs } from 'vue'
+import { ref, reactive, toRefs } from 'vue'
 import { useStore } from 'vuex'
+import {
+  getDatasetAtEvent,
+  getElementAtEvent,
+  getElementsAtEvent
+} from 'vue-chartjs'
 
 export function usePieConfig () {
   const store = useStore()
@@ -67,7 +72,48 @@ export function usePieConfig () {
     return data
   }
 
+  function datasetAtEvent (dataset) {
+    if (!dataset.length) return
+
+    const datasetIndex = dataset[0].datasetIndex
+
+    console.log('dataset', states.data.datasets[datasetIndex].label)
+  }
+  function elementAtEvent (element) {
+    if (!element.length) return
+
+    const { datasetIndex, index } = element[0]
+
+    console.log(
+      'element',
+      states.data.labels[index],
+      states.data.datasets[datasetIndex].data[index]
+    )
+  }
+  function elementsAtEvent (elements) {
+    if (!elements.length) return
+
+    console.log('elements', elements)
+  }
+
+  const pie = ref(null)
+  function onClick (e) {
+    const {
+      value: { chart }
+    } = pie
+
+    if (!chart) {
+      return
+    }
+
+    datasetAtEvent(getDatasetAtEvent(chart, e))
+    elementAtEvent(getElementAtEvent(chart, e))
+    elementsAtEvent(getElementsAtEvent(chart, e))
+  }
+
   return {
-    ...toRefs(states)
+    ...toRefs(states),
+    pie,
+    onClick
   }
 }
