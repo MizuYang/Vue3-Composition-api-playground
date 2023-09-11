@@ -40,7 +40,8 @@ const data = reactive({
     'swiper',
     'scrollingParallax',
     'aos',
-    'chart'
+    'chart',
+    'contentLoader'
   ],
   currentPageName: ''
 })

@@ -197,6 +197,14 @@ const routes = [
       pageName: 'chart'
     },
     component: () => import('@/views/demo/Chart.vue')
+  },
+  {
+    path: '/contentLoader',
+    name: 'contentLoader',
+    meta: {
+      pageName: 'contentLoader'
+    },
+    component: () => import('@/views/demo/VueContentLoader.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',
