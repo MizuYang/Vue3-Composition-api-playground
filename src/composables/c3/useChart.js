@@ -1,83 +1,30 @@
 
-import { onMounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import { useStore } from 'vuex'
-import c3 from 'c3/c3.js'
-import 'c3/c3.css'
 
-export function useChart () {
+export async function useChart () {
   const store = useStore()
-  const { commit } = store
+  const { dispatch } = store
+  let timer = null
 
-  const data = {
-    columns: [
-      ['data1', ...getRandomData()],
-      ['data2', ...getRandomData()]
-      // ['data1', 30, 200, 100, 400, 150, 250],
-      // ['data2', 50, 20, 10, 40, 15, 25]
-    ],
-    type: 'line',
-    // types: { // 同時呈現不同類型的圖表
-    //   data1: 'bar',
-    //   data2: 'spline'
-    // },
-    colors: { // 圖表數據的顏色
-      data1: 'red',
-      data2: 'green'
-    },
-    labels: true, // 在圖表上顯示該數據的數字
-    classes: { // 為數據加上 class 方便調整樣式
-      data1: 'data1-class', // (c3-target-樣式名稱, 例:. c3-target-data1-class)
-      data2: 'data2-class'
-    }
-  }
-  let chart = null
-
-  onMounted(() => {
-  // 使用C3.js创建折线图
-    chart = c3.generate({
-      bindto: '#chart',
-      data,
-      zoom: { // 滑鼠滾輪縮放圖表
-        enabled: true
-      },
-      subchart: { // 顯示縮放和選擇範圍的子圖表
-        show: true
-      }
-      // legend: {
-      // position: 'right' // 圖例的位置
-      // show: false // 是否顯示圖例
-      // }
-      // size: { // 圖表尺寸
-      //   height: 240,
-      //   width: 480
-      // }
-      // padding: { // 圖表外圍的 padding
-      //   top: 40,
-      //   right: 100,
-      //   bottom: 40,
-      //   left: 100
-      // }
-    })
-
-    commit('c3Chart/GET_CHART_ELEMENT', chart)
-
+  onMounted(async () => {
+    await dispatch('c3Chart/createChart')
     updateData()
   })
+  onUnmounted(() => {
+    clearInterval(timer)
+  })
+  async function updateData () {
+    timer = setInterval(async () => {
+      const getRandomData = () => dispatch('c3Chart/getRandomData')
+      const data1 = await getRandomData()
+      const data2 = await getRandomData()
+      const chart = store.state.c3Chart.chartElement
 
-  function getRandomData () {
-    const data = []
-    for (let i = 0; i < 20; i++) {
-      data.push(Math.round(Math.random() * 100) + 1)
-    }
-
-    return data
-  }
-  function updateData () {
-    setInterval(() => {
       chart.load({
         columns: [
-          ['data1', ...getRandomData()],
-          ['data2', ...getRandomData()]
+          ['data1', ...data1],
+          ['data2', ...data2]
         ]
       })
     }, 1500)
