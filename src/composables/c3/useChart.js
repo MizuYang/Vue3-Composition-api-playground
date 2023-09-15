@@ -36,7 +36,27 @@ export function useChart () {
   // 使用C3.js创建折线图
     chart = c3.generate({
       bindto: '#chart',
-      data
+      data,
+      zoom: { // 滑鼠滾輪縮放圖表
+        enabled: true
+      },
+      subchart: { // 顯示縮放和選擇範圍的子圖表
+        show: true
+      }
+      // legend: {
+      // position: 'right' // 圖例的位置
+      // show: false // 是否顯示圖例
+      // }
+      // size: { // 圖表尺寸
+      //   height: 240,
+      //   width: 480
+      // }
+      // padding: { // 圖表外圍的 padding
+      //   top: 40,
+      //   right: 100,
+      //   bottom: 40,
+      //   left: 100
+      // }
     })
 
     commit('c3Chart/GET_CHART_ELEMENT', chart)
@@ -46,7 +66,7 @@ export function useChart () {
 
   function getRandomData () {
     const data = []
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 20; i++) {
       data.push(Math.round(Math.random() * 100) + 1)
     }
 
