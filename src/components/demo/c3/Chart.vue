@@ -3,9 +3,14 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { toRefs, onMounted } from 'vue'
+import { useStore } from 'vuex'
 import c3 from 'c3/c3.js'
 import 'c3/c3.css'
+
+const store = useStore()
+const { commit } = store
+const { chartType } = toRefs(store.state.c3Chart) // eslint-disable-line
 
 const data = {
   columns: [
@@ -34,6 +39,8 @@ onMounted(() => {
     bindto: '#chart',
     data
   })
+
+  commit('c3Chart/GET_CHART_ELEMENT', chart)
 })
 </script>
 
