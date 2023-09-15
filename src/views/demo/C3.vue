@@ -29,5 +29,19 @@ import RotateChartBtn from '@/components/demo/c3/RotateChartBtn.vue'
 </script>
 
 <style lang='scss' scope>
-
+[data-theme="dark"] {
+  // 修改 hover 圖表的標籤樣式
+  // 標題
+  & .c3-tooltip > tbody > tr > th {
+    color: #fff;
+  }
+  // 數據名稱
+  & .c3-tooltip-container .name {
+    color: #000;
+  }
+  // 值
+  & .c3-tooltip-container .value {
+  color: #000;
+  }
+}
 </style>
