@@ -11,6 +11,10 @@
         <ChangeChartTypeBtn />
       </div>
 
+      <div class="mb-2">
+        <RotateChartBtn />
+      </div>
+
       <div class="area p-3">
         <Chart />
       </div>
@@ -21,6 +25,7 @@
 <script setup>
 import ChangeChartTypeBtn from '@/components/demo/c3/ChangeChartTypeBtn.vue'
 import Chart from '@/components/demo/c3/Chart.vue'
+import RotateChartBtn from '@/components/demo/c3/RotateChartBtn.vue'
 </script>
 
 <style lang='scss' scope>
