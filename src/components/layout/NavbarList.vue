@@ -41,7 +41,8 @@ const data = reactive({
     'scrollingParallax',
     'aos',
     'chart',
-    'contentLoader'
+    'contentLoader',
+    'c3'
   ],
   currentPageName: ''
 })

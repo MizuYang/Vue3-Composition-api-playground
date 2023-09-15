@@ -205,6 +205,14 @@ const routes = [
       pageName: 'contentLoader'
     },
     component: () => import('@/views/demo/VueContentLoader.vue')
+  },
+  {
+    path: '/c3',
+    name: 'c3',
+    meta: {
+      pageName: 'c3'
+    },
+    component: () => import('@/views/demo/C3.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',
