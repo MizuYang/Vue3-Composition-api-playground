@@ -16,7 +16,7 @@ export const i18n = createI18n({
   // fallbackLocale: 'en',
 
   // 全局注册 $t
-  // globalInjection: true,
+  globalInjection: true,
 
   // 语言库
   messages: {
