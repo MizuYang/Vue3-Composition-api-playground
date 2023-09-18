@@ -20,5 +20,8 @@
   "CardTitle": "カードタイトル",
   "CardContent": "カードの内容",
   "Image": "画像",
-  "Button": "ボタン"
+  "Button": "ボタン",
+  "zh": "中国語",
+  "en": "英語",
+  "ja": "日本語"
 }

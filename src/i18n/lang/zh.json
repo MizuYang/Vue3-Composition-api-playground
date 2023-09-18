@@ -20,5 +20,8 @@
   "CardTitle": "卡片標題",
   "CardContent": "卡片內容",
   "Image": "圖片",
-  "Button": "按鈕"
+  "Button": "按鈕",
+  "zh": "中文",
+  "en": "英文",
+  "ja": "日文"
 }
