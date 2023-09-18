@@ -213,6 +213,14 @@ const routes = [
       pageName: 'c3'
     },
     component: () => import('@/views/demo/C3.vue')
+  },
+  {
+    path: '/i18n',
+    name: 'i18n',
+    meta: {
+      pageName: 'i18n'
+    },
+    component: () => import('@/views/demo/I18N.vue')
   }
   // { //* 代表所有主頁面下的頁面，路由錯誤都會被導向
   //   path: '/:pathMatch(.*)*',

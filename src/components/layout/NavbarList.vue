@@ -42,7 +42,8 @@ const data = reactive({
     'aos',
     'chart',
     'contentLoader',
-    'c3'
+    'c3',
+    'i18n'
   ],
   currentPageName: ''
 })
