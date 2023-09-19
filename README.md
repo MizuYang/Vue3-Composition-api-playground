@@ -5,6 +5,31 @@
   - Props
   - Emits
   - :is + keep-alive
-  - slots
-  - teleport
-  - modules
+  - Slots
+  - ToRef, ToRefs
+  - 生命週期
+  - Teleport
+  - Readonly
+  - Modules
+  - ToRaw、MarkRaw
+  - CustomRef(待補)
+
+- 實作
+  - 待辦清單
+  - 輪播(手刻)
+      - 輪播錨點跳轉
+      - 滾輪控制輪播
+      - 滑鼠拖動輪播
+      - 播放/暫停輪播
+      - 設定
+         - 顯示/隱藏 溢出圖片
+         - 自動播放
+         - 輪播方向
+         - 漸變時間
+         - 播放速度
+  - swiper
+  - 滾動視差
+  - animate
+  - chart.js
+  - 骨架屏
+  - i18n
