@@ -1,3 +1,4 @@
+- Vue3 Composition api
   - Watch
   - Computed
   - WatchEffect 
@@ -28,8 +29,10 @@
          - 漸變時間
          - 播放速度
   - swiper
-  - 滾動視差
-  - animate
+  - 滾動視差 (手刻)
+    - animate.css
+  - aos.js
   - chart.js
   - 骨架屏
+  - c3.js
   - i18n
