@@ -1,0 +1,1 @@
+.border-default{transition:border .5s}.border-default,.border-default:focus{border:5px solid gray}.validate-fail{transition:border .5s}.validate-fail,.validate-fail:focus{border:5px solid red}.validate-success{transition:border .5s}.validate-success,.validate-success:focus{border:5px solid green}
