@@ -1,4 +1,4 @@
-<a href="https://mizuyang.github.io/Vue3-Composition-api-playground/#/watch" target="_bloank">Demo頁面</a>
+<a href="https://mizuyang.github.io/Vue3-Composition-api-playground/#/watch" target="_blank">Demo頁面</a>
 
 - Vue3 Composition api
   - Watch
